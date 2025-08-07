@@ -1,7 +1,10 @@
 import streamlit as st
 import pycountry
 import plotly.express as px
+import matplotlib.pyplot as plt
+import seaborn as sns
 import pandas as pd
+import plotly.express as px
 from Backend import run_forecast, determine_degree, prepare_data
 from Country import load_and_prepare_data, get_ordered_countries_only
 
@@ -25,12 +28,34 @@ st.sidebar.title("🧭 Navigation")
 page = st.sidebar.radio("📚 Go to section:", ["📈 Forecasting", "🌍 Country Insights", "ℹ️ About"])
 
 valid_labels = label_counts[~label_counts["Label"].isin(["error", "invalid_label"])]["Label"]
-label = st.sidebar.selectbox("📌 Quantum topic", sorted(valid_labels))
+
+#label = st.sidebar.selectbox("📌 Quantum topic", sorted(valid_labels))
+
+# this is to allow multiple labels
+selected_labels = st.sidebar.multiselect(
+    "📌 Quantum topics (select one or more)", 
+    sorted(valid_labels),
+    default=[sorted(valid_labels)[0]]  # optional: set a default
+)
+
 
 
 
 if page == "📈 Forecasting":
     st.title("🔮 Quantum Subfield Growth Forecast")
+
+    # 📅 Forecast Year Selection
+   
+    future_years = st.sidebar.multiselect(
+        "📅 Years to forecast",
+        options=[2025, 2026, 2027, 2028],
+        default=[2025, 2026]
+    )
+
+
+    # Sort just in case user clicks out of order
+    future_years = sorted(future_years)
+
 
     with st.expander("ℹ️ What does this dashboard show and how it works?", expanded=False):
      st.markdown("""
@@ -109,75 +134,200 @@ if page == "📈 Forecasting":
 
     alpha = 0.1  # regularization
 
-    if st.button("🚀 Run Forecast"):
-        run_forecast(
-            label_name=label,
-            w_patents=w_patents,
-            w_research=w_research,
-            w_financial=w_financial,
-            alpha=alpha,
-            combined=combined,
-            label_counts=label_counts
+    # if st.button("🚀 Run Forecast"):
+    #     run_forecast(
+    #         label_name=label,
+    #         w_patents=w_patents,
+    #         w_research=w_research,
+    #         w_financial=w_financial,
+    #         alpha=alpha,
+    #         combined=combined,
+    #         label_counts=label_counts
+    #     )
+
+    all_results = []
+
+    if st.button("🚀 Run Forecast for Selected Topics"):
+
+    
+        for label in selected_labels:
+            st.markdown(f"## 🔮 Forecast for: {label}")
+            result = run_forecast(
+                label_name=label,
+                w_patents=w_patents,
+                w_research=w_research,
+                w_financial=w_financial,
+                alpha=alpha,
+                combined=combined,
+                label_counts=label_counts,
+                future_years=future_years 
+            )
+            if result:
+                all_results.append(result)
+            st.markdown("---")
+
+
+    if len(all_results) > 1:
+        st.markdown("### 📊 Comparison Across Topics")
+
+        # Prepare DataFrame for plotting
+        plot_data = []
+        for result in all_results:
+            for year, score, pred in zip(result["years"], result["scores"], result["is_predicted"]):
+                plot_data.append({
+                    "Year": int(year),
+                    "Score": score,
+                    "Topic": result["label"],
+                    "Type": "Predicted" if pred else "Actual"
+                })
+
+        df_plot = pd.DataFrame(plot_data)
+
+        fig = px.bar(
+            df_plot,
+            x="Year",
+            y="Score",
+            color="Topic",
+            barmode="group",
+            pattern_shape="Type",
+            pattern_shape_sequence=["", "/"],
+            title="📊 Comparison of Forecasted Quantum Topics"
         )
 
+        fig.update_layout(
+            height=500,
+            legend_title_text="Quantum Topic",
+            xaxis_title="Year",
+            yaxis_title="Score",
+            bargap=0.15,
+            bargroupgap=0.05
+        )
+
+        st.plotly_chart(fig, use_container_width=True)
+
+
+    
+
+
+# elif page == "🌍 Country Insights":
+#     st.title("🌍 Top Contributing Countries")
+#     top_n = st.slider("Number of countries to display", 5, 20, 10)
+#     top_countries_df = get_ordered_countries_only(filtered_combined, label, top_n)
+
+#     # Table
+#     top_countries_df_display = top_countries_df.copy()
+#     top_countries_df_display.index = top_countries_df_display.index + 1
+#     top_countries_df_display.index.name = "Rank"
+
+#     st.dataframe(top_countries_df_display)
+
+#     # Bar chart
+#     st.bar_chart(data=top_countries_df.set_index("Country")["Total"])
+
+#     # Map
+#     with st.expander("🗺️ View Country Contributions on Map"):
+#         all_countries = sorted({country.name for country in pycountry.countries})
+#         world_df = pd.DataFrame({"country": all_countries})
+
+#         map_df = top_countries_df.copy().rename(columns={"Country": "country", "Total": "contribution"})
+#         merged_map = world_df.merge(map_df, on="country", how="left")
+#         merged_map["contribution"] = merged_map["contribution"].fillna(0)
+
+#         merged_map["hover"] = merged_map.apply(
+#             lambda row: f"{row['country']}: {int(row['contribution'])}" if row["contribution"] > 0 else "",
+#             axis=1
+#         )
+#         merged_map["status"] = merged_map["contribution"].apply(
+#             lambda x: "Contributing" if x > 0 else "No contribution"
+#         )
+
+#         color_map = {
+#             "No contribution": "#E0E0E0",
+#             "Contributing": "#1f77b4"
+#         }
+
+#         fig = px.choropleth(
+#             merged_map,
+#             locations="country",
+#             locationmode="country names",
+#             color="status",
+#             hover_name="hover",
+#             color_discrete_map=color_map,
+#             title=f"🌍 Contributions by Country – {label}",
+#             projection="natural earth"
+#         )
+
+#         fig.update_geos(
+#             showcountries=True,
+#             showcoastlines=True,
+#             showframe=False,
+#             fitbounds="locations"
+#         )
+#         fig.update_layout(height=700, margin=dict(l=0, r=0, t=30, b=0))
+#         st.plotly_chart(fig, use_container_width=True)
 
 
 elif page == "🌍 Country Insights":
     st.title("🌍 Top Contributing Countries")
     top_n = st.slider("Number of countries to display", 5, 20, 10)
-    top_countries_df = get_ordered_countries_only(filtered_combined, label, top_n)
 
-    # Table
-    top_countries_df_display = top_countries_df.copy()
-    top_countries_df_display.index = top_countries_df_display.index + 1
-    top_countries_df_display.index.name = "Rank"
+    for label in selected_labels:
+        st.markdown(f"## 📌 {label}")
 
-    st.dataframe(top_countries_df_display)
+        top_countries_df = get_ordered_countries_only(filtered_combined, label, top_n)
 
-    # Bar chart
-    st.bar_chart(data=top_countries_df.set_index("Country")["Total"])
+        # Table
+        top_countries_df_display = top_countries_df.copy()
+        top_countries_df_display.index = top_countries_df_display.index + 1
+        top_countries_df_display.index.name = "Rank"
+        st.dataframe(top_countries_df_display)
 
-    # Map
-    with st.expander("🗺️ View Country Contributions on Map"):
-        all_countries = sorted({country.name for country in pycountry.countries})
-        world_df = pd.DataFrame({"country": all_countries})
+        # Bar chart
+        st.bar_chart(data=top_countries_df.set_index("Country")["Total"])
 
-        map_df = top_countries_df.copy().rename(columns={"Country": "country", "Total": "contribution"})
-        merged_map = world_df.merge(map_df, on="country", how="left")
-        merged_map["contribution"] = merged_map["contribution"].fillna(0)
+        # Map
+        with st.expander(f"🗺️ View Country Contributions on Map for {label}"):
+            all_countries = sorted({country.name for country in pycountry.countries})
+            world_df = pd.DataFrame({"country": all_countries})
 
-        merged_map["hover"] = merged_map.apply(
-            lambda row: f"{row['country']}: {int(row['contribution'])}" if row["contribution"] > 0 else "",
-            axis=1
-        )
-        merged_map["status"] = merged_map["contribution"].apply(
-            lambda x: "Contributing" if x > 0 else "No contribution"
-        )
+            map_df = top_countries_df.copy().rename(columns={"Country": "country", "Total": "contribution"})
+            merged_map = world_df.merge(map_df, on="country", how="left")
+            merged_map["contribution"] = merged_map["contribution"].fillna(0)
 
-        color_map = {
-            "No contribution": "#E0E0E0",
-            "Contributing": "#1f77b4"
-        }
+            merged_map["hover"] = merged_map.apply(
+                lambda row: f"{row['country']}: {int(row['contribution'])}" if row["contribution"] > 0 else "",
+                axis=1
+            )
+            merged_map["status"] = merged_map["contribution"].apply(
+                lambda x: "Contributing" if x > 0 else "No contribution"
+            )
 
-        fig = px.choropleth(
-            merged_map,
-            locations="country",
-            locationmode="country names",
-            color="status",
-            hover_name="hover",
-            color_discrete_map=color_map,
-            title=f"🌍 Contributions by Country – {label}",
-            projection="natural earth"
-        )
+            color_map = {
+                "No contribution": "#E0E0E0",
+                "Contributing": "#1f77b4"
+            }
 
-        fig.update_geos(
-            showcountries=True,
-            showcoastlines=True,
-            showframe=False,
-            fitbounds="locations"
-        )
-        fig.update_layout(height=700, margin=dict(l=0, r=0, t=30, b=0))
-        st.plotly_chart(fig, use_container_width=True)
+            fig = px.choropleth(
+                merged_map,
+                locations="country",
+                locationmode="country names",
+                color="status",
+                hover_name="hover",
+                color_discrete_map=color_map,
+                title=f"🌍 Contributions by Country – {label}",
+                projection="natural earth"
+            )
+
+            fig.update_geos(
+                showcountries=True,
+                showcoastlines=True,
+                showframe=False,
+                fitbounds="locations"
+            )
+            fig.update_layout(height=700, margin=dict(l=0, r=0, t=30, b=0))
+            st.plotly_chart(fig, use_container_width=True)
+
+        st.markdown("---")
 
 
 

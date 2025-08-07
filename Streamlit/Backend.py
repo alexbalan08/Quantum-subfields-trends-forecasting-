@@ -101,7 +101,8 @@ def determine_degree(total_count):
         return 1
 
 
-def run_forecast(label_name, w_patents, w_research, w_financial, alpha, combined, label_counts):
+def run_forecast(label_name, w_patents, w_research, w_financial, alpha, combined, label_counts, future_years):
+
     row = label_counts[label_counts["Label"] == label_name]
     if row.empty:
         st.error(f"Label not found: {label_name}")
@@ -167,7 +168,9 @@ def run_forecast(label_name, w_patents, w_research, w_financial, alpha, combined
     y_plot = df["WeightedScore"].values
     y_full   = y_plot 
 
-    X_future = np.arange(2025, 2029).reshape(-1, 1)
+    # X_future = np.arange(2025, 2029).reshape(-1, 1)
+    # y_future = model.predict(poly.transform(X_future))
+    X_future = np.array(future_years).reshape(-1, 1)
     y_future = model.predict(poly.transform(X_future))
 
     
@@ -188,7 +191,10 @@ def run_forecast(label_name, w_patents, w_research, w_financial, alpha, combined
 
 
     ax.bar(actual_years, y_full, label="Actual (2017–2024)", color="steelblue")
-    ax.bar(predicted_years, growth_scores, label="Predicted (2025–2028)",       color="orange")
+    #ax.bar(predicted_years, growth_scores, label="Predicted (2025–2028)",       color="orange")
+    year_range_str = f"{min(future_years)}–{max(future_years)}" if len(future_years) > 1 else f"{future_years[0]}"
+    ax.bar(predicted_years, growth_scores, label=f"Predicted ({year_range_str})", color="orange")
+
 
 
     ax.set_xticks(all_years)
@@ -229,6 +235,46 @@ def run_forecast(label_name, w_patents, w_research, w_financial, alpha, combined
     ax.spines[['top', 'right']].set_visible(False)
     
     st.pyplot(fig_growth)
+
+    
+    # Prepare data to download
+    download_df = pd.DataFrame({
+        "Year": X_future.flatten(),
+        "Predicted Score": y_future,
+        "Topic": label_name
+    })
+
+    csv = download_df.to_csv(index=False).encode('utf-8')
+
+    st.download_button(
+        label="💾 Download predictions as CSV",
+        data=csv,
+        file_name=f"{label_name}_forecast.csv",
+        mime='text/csv'
+    )
+
+    import io
+
+    # Save plot to buffer
+    buf = io.BytesIO()
+    fig.savefig(buf, format="png")
+    buf.seek(0)
+
+    st.download_button(
+        label="🖼️ Download chart as PNG",
+        data=buf,
+        file_name=f"{label_name}_forecast.png",
+        mime="image/png"
+    )
+
+
+    return {
+    "label": label_name,
+    "years": list(df["Year"].values) + list(predicted_years),
+    "scores": list(y_full) + list(growth_scores),
+    "is_predicted": [False] * len(y_full) + [True] * len(growth_scores)
+}
+
 
 
 
