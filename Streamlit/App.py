@@ -378,7 +378,7 @@ elif page == "ℹ️ About":
     The scoring model adapts the polynomial degree based on data volume and uses ridge regression for better generalization.
     """)
                 
-    with st.expander("📥 Data collection (short version)", expanded=False):
+    with st.expander("📥 Data collection", expanded=False):
         st.markdown("""
         This app combines three datasets to estimate activity in each quantum subfield:
 
@@ -393,8 +393,8 @@ elif page == "ℹ️ About":
         - What we count: per-(Year, Label, Country) occurrences.
 
         **3) Public funding**
-        - Source: a compiled country–year table of quantum-related funding from public announcements/budget lines.
-        - Use in model: converted to a **country-summed annual series** and **min–max scaled** before combining with papers and patents.
+        - Source: compiled from various public sources (official announcements, budget documents, reputable news releases). Some entries were supplemented using AI-assisted searches when not enough data was available.
+        - Use in model: converted to a **country-summed annual series** and **min–max scaled** before combining with papers and patents. 
 
         **Time window used in the app**
         - Forecast training uses **2017–2023** with **2024** held out for validation; forecasts cover **2025–2028**.
