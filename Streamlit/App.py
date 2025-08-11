@@ -269,6 +269,21 @@ if page == "📈 Forecasting":
 
 elif page == "🌍 Country Insights":
     st.title("🌍 Top Contributing Countries")
+
+    with st.expander("ℹ️ How we compute 'Total' per country", expanded=False):
+        st.markdown("""
+        **Total = Research_Count + Patent_Count**
+
+        - **Research_Count**: number of research records tagged with the selected quantum topic and country  
+          (for multi-country fields, each listed country receives one count per record).
+        - **Patent_Count**: number of patent records tagged with the selected topic and country.
+        """)
+
+    with st.expander("⚠️ Data Limitations", expanded=False):
+        st.markdown("""
+        - Counts depend on available datasets — some countries may be underrepresented due to incomplete coverage.
+        """)
+
     top_n = st.slider("Number of countries to display", 5, 20, 10)
 
     for label in selected_labels:
@@ -287,6 +302,12 @@ elif page == "🌍 Country Insights":
 
         # Map
         with st.expander(f"🗺️ View Country Contributions on Map for {label}"):
+            st.markdown("""
+            **Map legend:**
+            - Darker shades = more contributions (Research + Patents).
+            - Lightest shade = no recorded contributions for this subfield in our dataset.
+            """)
+
             all_countries = sorted({country.name for country in pycountry.countries})
             world_df = pd.DataFrame({"country": all_countries})
 
@@ -307,17 +328,18 @@ elif page == "🌍 Country Insights":
                 "Contributing": "#1f77b4"
             }
 
+
             fig = px.choropleth(
                 merged_map,
                 locations="country",
                 locationmode="country names",
-                color="contribution",  # numeric values
+                color="contribution",
                 hover_name="country",
                 hover_data={"contribution": True},
                 color_continuous_scale=[
-                    (0, "#f2f0f7"),   # very light for low values
+                    (0, "#f2f0f7"),   #  light for low 
                     (0.5, "#9e9ac8"), # medium purple
-                    (1, "#54278f")    # dark for high values
+                    (1, "#54278f")    # dark for high 
                 ],
                 title=f"🌍 Contributions by Country – {label}",
                 projection="natural earth"
@@ -354,7 +376,35 @@ elif page == "ℹ️ About":
     See each individual section information for more details.
 
     The scoring model adapts the polynomial degree based on data volume and uses ridge regression for better generalization.
+    """
+                
+    with st.expander("📥 Data collection (short version)", expanded=False):
+        st.markdown("""
+        This app combines three datasets to estimate activity in each quantum subfield:
 
+        **1) Research papers**
+        - Source: CSV exports from Scopus (exports were split and then **concatenated** due to a ~5,000-record per-file limit).
+        - What we keep: year, topic label, and country/affiliation fields.
+        - Countries: when multi-country affiliations are present, each listed country receives one count per record; names are normalized.
+
+        **2) Patents**
+        - Source: labeled patent records (merged across jurisdictions; **EPO** used as a key source when patents appear in multiple offices).
+        - Countries: entries like **WIPO/PCT** are grouped as **“International”**; country names are cleaned and normalized.
+        - What we count: per-(Year, Label, Country) occurrences.
+
+        **3) Public funding**
+        - Source: a compiled country–year table of quantum-related funding from public announcements/budget lines.
+        - Use in model: converted to a **country-summed annual series** and **min–max scaled** before combining with papers and patents.
+
+        **Time window used in the app**
+        - Forecast training uses **2017–2023** with **2024** held out for validation; forecasts cover **2025–2028**.
+
+        **Notes**
+        - Topic labels are precomputed in the provided datasets; a detailed methodology will be included in the technical report.
+        - Some countries may be underrepresented where metadata is incomplete or missing.
+        """)
+
+    """            
     ---
     **Built with:** Python, Streamlit, Plotly  
                 
