@@ -376,7 +376,7 @@ elif page == "ℹ️ About":
     See each individual section information for more details.
 
     The scoring model adapts the polynomial degree based on data volume and uses ridge regression for better generalization.
-    """
+    """)
                 
     with st.expander("📥 Data collection (short version)", expanded=False):
         st.markdown("""
@@ -404,7 +404,7 @@ elif page == "ℹ️ About":
         - Some countries may be underrepresented where metadata is incomplete or missing.
         """)
 
-    """            
+    st.markdown("""            
     ---
     **Built with:** Python, Streamlit, Plotly  
                 
