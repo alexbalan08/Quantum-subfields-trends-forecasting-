@@ -311,12 +311,23 @@ elif page == "🌍 Country Insights":
                 merged_map,
                 locations="country",
                 locationmode="country names",
-                color="status",
-                hover_name="hover",
-                color_discrete_map=color_map,
+                color="contribution",  # numeric values
+                hover_name="country",
+                hover_data={"contribution": True},
+                color_continuous_scale=[
+                    (0, "#f2f0f7"),   # very light for low values
+                    (0.5, "#9e9ac8"), # medium purple
+                    (1, "#54278f")    # dark for high values
+                ],
                 title=f"🌍 Contributions by Country – {label}",
                 projection="natural earth"
             )
+
+            fig.update_layout(coloraxis_colorbar=dict(
+                title="Contribution",
+                ticks="outside"
+            ))
+
 
             fig.update_geos(
                 showcountries=True,
