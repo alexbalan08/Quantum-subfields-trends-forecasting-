@@ -64,7 +64,7 @@ The **interactive app** allows users to:
 
 ## Structure
 In the streamlit folder all the application files are ready to be run (after installing the reqiored libraries, including streamlit)
-In the other folder all the notebooks with all the steps, results and explanations are present. Those include data labeling, a frame for the predictive model with experiments including for the regularization method, etc.
+In the rest are all the notebooks with all the steps, results and explanations are present. Those include data labeling, a frame for the predictive model with experiments including for the regularization method, etc.
 Before cecking the streamlit folder, please look over the notebooks. 
 The report presents the work in detail as well. 
 
