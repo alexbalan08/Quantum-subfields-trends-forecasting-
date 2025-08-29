@@ -1,4 +1,3 @@
-# quantum_research
 
 # Quantum Subfield Forecasting Prototype
 
