@@ -1,7 +1,5 @@
-<<<<<<< HEAD
 # quantum_research
-Trend prediction for quantum computing - academic research work
-=======
+
 # Quantum Subfield Forecasting Prototype
 
 This repository presents a complete pipeline for analyzing and forecasting the evolution of **39 quantum technology subfields** by combining data from **research publications**, **patent filings**, and **public/private funding sources**.  
