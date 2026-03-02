@@ -36,4 +36,12 @@ def build_network(df: pd.DataFrame, map_names: Dict[str, str]) -> nx.Graph:
         print("Edges:", G.number_of_edges())
     except Exception as e:
         print(f"Error while building graph: {e}")
+
+def get_neighbors(name_of_org: str, G: nx.Graph, n_neighbors_to_display: int) -> None:  # it just prints
+    # EXAMPLE USAGE: name_of_org = "ETH Zurich" // will try later on to have a system to recognize incorrect spellings
+    print(sorted(
+        [(nbr, G[name_of_org][nbr]["weight"]) for nbr in G.neighbors(name_of_org)],
+        key=lambda x: x[1],
+        reverse=True
+    )[:n_neighbors_to_display])
 #EOF
