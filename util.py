@@ -3,7 +3,7 @@ import re
 import unicodedata
 
 
-def myhook(pairs):
+def myhook(pairs) -> dict:
         d = {}
         for k, v in pairs:
             if not isinstance(v, list):
@@ -14,10 +14,10 @@ def myhook(pairs):
                 d[k] = v.copy()
         return d
 
-def order_and_save_merge_duplicates(path_to_input_map: str, path_to_output: str) -> None:
+def order_and_save_merge_duplicates_from_json(path_to_input_map: str, path_to_output: str) -> None:
     with open(path_to_input_map, 'r') as f:
-        mydata = json.load(f, object_pairs_hook=myhook)
-        map_sorted = dict(sorted(mydata))
+        mydata: dict[str, str] = json.load(f, object_pairs_hook=myhook)
+        map_sorted = dict(sorted(mydata.items()))
     with open(path_to_output, 'w') as f:
         json.dump(map_sorted, f)
 
@@ -51,5 +51,19 @@ def normalize_key(name: str) -> str:  # remove accents, lower, translate if need
         new_name = re.sub(pattern, replacement, new_name, flags=re.IGNORECASE)
     new_name = new_name.replace(".", "").replace("-", " ")
     new_name = re.sub(r'\s+', ' ', new_name)
+    if new_name.split(" ")[-1] == "inc":
+        new_name = new_name.split(" ")[:-1]
     return new_name.strip().lower()
+
+def normalize_mapping_keys(input_map: dict[str, str]) -> dict:
+    canonical_map: dict[str, str] = {}
+    for raw_key, variations in input_map.items():
+        clean_key = normalize_key(raw_key)
+        if clean_key in canonical_map:
+            canonical_map[clean_key].extend(variations)
+        else:
+            canonical_map[clean_key] = variations.copy()
+    for key in canonical_map:
+        canonical_map[key] = list(set(canonical_map[key]))
+    return input_map
 #EOF
