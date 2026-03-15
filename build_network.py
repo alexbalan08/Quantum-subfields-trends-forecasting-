@@ -16,6 +16,9 @@ def build_inverse_mapping(input_dict: Dict[str, str]) -> Dict[str, str]:  # inve
             inv_map[aff] = k
     return inv_map
 
+def newman_weight(n):
+    return 1 / (n - 1)
+
 def build_network(df: pd.DataFrame, map_names: Dict[str, str]) -> nx.Graph:
     inv_map: dict = build_inverse_mapping(map_names)
     df["Affiliations"] = (df["Affiliations"].fillna("").apply(lambda x: [a.strip() for a in x.split(";") if a.strip()]))
@@ -23,14 +26,16 @@ def build_network(df: pd.DataFrame, map_names: Dict[str, str]) -> nx.Graph:
     G = nx.Graph()
     try:
         for aff_list in df["Affiliations_Mapped"]:
-            aff_list = list(set(aff_list))
-            if len(aff_list) < 2:
-                continue
-            for u, v in combinations(aff_list, 2):
-                if G.has_edge(u, v):
-                    G[u][v]["weight"] += 1
-                else:
-                    G.add_edge(u, v, weight=1)
+            unique_affs = list(set(aff_list))
+            N = len(unique_affs)
+            G.add_nodes_from(unique_affs)
+            if N >= 2:
+                w = newman_weight(N)
+                for u, v in combinations(unique_affs, 2):
+                    if G.has_edge(u, v):
+                        G[u][v]["weight"] += w
+                    else:
+                        G.add_edge(u, v, weight=w)
         print("Graph succesfully created!")
         print("Nodes:", G.number_of_nodes())
         print("Edges:", G.number_of_edges())
