@@ -2,11 +2,14 @@ import pandas as pd
 import networkx as nx
 from typing import Dict
 from itertools import combinations
+import ast
+import json
 
 
 # constants
 PATH_TO_CANON_MAP = ""
 PATH_TO_DF = ""  # in .csv!!!!!!!
+PATH_TO_COUNTRY_MAP = ""
 
 
 def build_inverse_mapping(input_dict: Dict[str, str]) -> Dict[str, str]:  # inverts the first mapping
@@ -61,20 +64,46 @@ def build_G_topic(df: pd.DataFrame) -> nx.Graph:
                 G.nodes[topic]['type'] = 'topic'
     return G
 
-def build_G_country(df: pd.DataFrame) -> nx.Graph:
+def build_G_country(df: pd.DataFrame, country_cleaning_map: dict[str, str]) -> nx.Graph:
+    """
+    Builds a country-to-country collaboration graph.
+    All variations (e.g., 'Macau', 'Puerto Rico') are funneled into 
+    Canon Country Nodes via the country_cleaning_map.
+    """
+    df['Country_Parsed'] = df['Country'].fillna("[]").apply(
+        lambda x: ast.literal_eval(x) if isinstance(x, str) and x.startswith('[') else (x if isinstance(x, list) else [x])
+    )
     G = nx.Graph()
-    for countries in df["Country"]:
-        if not isinstance(countries, list):
+    for country_list in df["Country_Parsed"]:
+        cleaned_list = list(set(country_cleaning_map.get(c.strip(), c.strip()) for c in country_list if c))
+        N = len(cleaned_list)
+        if N < 1:
             continue
-        unique_countries = list(set(countries))
-        G.add_nodes_from(unique_countries)
-        if len(unique_countries) >= 2:
-            for u, v in combinations(unique_countries, 2):
+        G.add_nodes_from(cleaned_list)
+        if N >= 2:
+            w = newman_weight(N)
+            for u, v in combinations(cleaned_list, 2):
                 if G.has_edge(u, v):
-                    G[u][v]["weight"] += 1
+                    G[u][v]["weight"] += w
                 else:
-                    G.add_edge(u, v, weight=1)
+                    G.add_edge(u, v, weight=w)
+    print(f"Nodes: {G.number_of_nodes()} | Edges: {G.number_of_edges()}")
     return G
+
+def split_map_country(input_map: dict[str, str]) -> dict[str, str]:
+    out: dict[str, str] = {}
+    for k, v in input_map.items():
+        for org in v:  # recall v is a list of strings
+            country: str = org.split(",")[-1].strip()  # country always present as the last element
+            new_key = k + " (" + country + ")"
+            if not out.get(new_key):
+                out[new_key] = [org]
+            else:
+                out[new_key].append(org)
+    return out
+
+def clean_country_list(c_list: list[str], country_cleaning_map: dict[str, str]):
+    return list(set(country_cleaning_map.get(c, c) for c in c_list))
 
 def get_neighbors(name_of_org: str, G: nx.Graph, n_neighbors_to_display: int) -> None:  # it just prints
     # EXAMPLE USAGE: name_of_org = "ETH Zurich" // will try later on to have a system to recognize incorrect spellings
