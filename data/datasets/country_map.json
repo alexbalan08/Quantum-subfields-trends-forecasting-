@@ -1,271 +1,743 @@
 {
-    "USA": "United States of America (USA)",
-    "United States": "United States of America (USA)",
-    "UK": "United Kingdom (UK)",
-    "United Kingdom": "United Kingdom (UK)",
-    "PRC": "People's Republic of China (PRC)",
-    "China": "People's Republic of China (PRC)",
-    "ROC": "Republic of China (ROC)",
-    "Taiwan": "Republic of China (ROC)",
-    "Russian Federation": "Russia",
-    "Russia": "Russia",
-    "The Netherlands": "Netherlands",
-    "UAE": "United Arab Emirates (UAE)",
-    "Viet Nam": "Vietnam",
-    "DRC": "Democratic Republic of the Congo (DRC)",
-    "Macao": "People's Republic of China (PRC)",
-    "Puerto Rico": "United States of America (USA)",
-    "American Samoa": "United States of America (USA)",
-    "Guam": "United States of America (USA)",
-    "Macau": "People's Republic of China (PRC)",
-    "Macau (MAC)": "People's Republic of China (PRC)",
-    "Hong Kong": "People's Republic of China (PRC)",
-    "Netherlands (NLD)": "Netherlands",
-    "Portugal": "Portugal",
-    "Spain": "Spain",
-    "IRTIC Institute & amp": "Spain",
-    "Telcfónica Global CTIO": "Spain",
-    "CTTC/CERCA": "Spain",
-    "NaNoNetworking Center in Catalonia": "Spain",
-    "Italy": "Italy",
-    "Universitandacute": "Italy",
-    "University of Palermo": "Italy",
-    "INFN Pisa": "Italy",
-    "The CNR-NANO Institute": "Italy",
-    "CNIT": "Italy",
-    "Sic": "Italy",
-    "Germany": "Germany",
-    "Johannes Gutenberg-Universität Mainz": "Germany",
-    "Helmholtz-Institut Mainz": "Germany",
-    "Fraunhofer SIT": "Germany",
-    "TRUMPF SE + Co. KG": "Germany",
-    "United Kingdom (UK)": "United Kingdom (UK)",
-    "United Kingdom.": "United Kingdom (UK)",
-    "University of Edinburgh": "United Kingdom (UK)",
-    "Bcs": "United Kingdom (UK)",
-    "France": "France",
-    "Université Côte d' Azur": "France",
-    "Thales Land and Air Systems": "France",
-    "CNRS": "France",
-    "Secure IC": "France",
-    "Quobly": "France",
-    "Switzerland": "Switzerland",
-    "CERN Openlab": "Switzerland",
-    "Ibm Research-Zu and Die": "Switzerland",
-    "TNO": "Netherlands",
-    "Quantum and Computer Engineering Department": "Netherlands",
-    "Sweden": "Sweden",
-    "Stockholm University": "Sweden",
-    "Ericsson Research": "Sweden",
-    "Russia (RUS)": "Russia",
-    "Volgograd Technical University": "Russia",
-    "Norway": "Norway",
-    "Sintef": "Norway",
-    "Turkey": "Turkey",
-    "Türkiye": "Turkey",
-    "European Theoretical Spectroscopy Facility (ETSF)": "European Union (EU)",
-    "European Theoretical Spectroscopy Facility": "European Union (EU)",
-    "Greece": "Greece",
-    "Belgium": "Belgium",
-    "Austria": "Austria",
-    "Denmark": "Denmark",
-    "Poland": "Poland",
-    "Finland": "Finland",
-    "Ireland": "Ireland",
-    "Czech Republic": "Czech Republic",
-    "Hungary": "Hungary",
-    "Romania": "Romania",
-    "Ukraine": "Ukraine",
-    "Estonia": "Estonia",
-    "Latvia": "Latvia",
-    "Luxembourg": "Luxembourg",
-    "Slovenia": "Slovenia",
-    "Bulgaria": "Bulgaria",
-    "Croatia": "Croatia",
-    "Lithuania": "Lithuania",
-    "Serbia": "Serbia",
-    "Montenegro": "Montenegro",
-    "Albania": "Albania",
-    "Bosnia and Herzegovina": "Bosnia and Herzegovina",
-    "Moldova": "Moldova",
-    "Belarus": "Belarus",
-    "Iceland": "Iceland",
-    "Malta": "Malta",
-    "North Macedonia": "North Macedonia",
-    "United States of America (USA)": "United States of America (USA)",
-    "Stanford University": "United States of America (USA)",
-    "Northeastern University": "United States of America (USA)",
-    "Mit": "United States of America (USA)",
-    "UCLA": "United States of America (USA)",
-    "Rutgers University": "United States of America (USA)",
-    "Ohio State University": "United States of America (USA)",
-    "University of Minnesota": "United States of America (USA)",
-    "Duke University": "United States of America (USA)",
-    "Princeton University": "United States of America (USA)",
-    "University Of Chicago": "United States of America (USA)",
-    "Georgia Institute of Technology": "United States of America (USA)",
-    "Caltech": "United States of America (USA)",
-    "University Of Denver": "United States of America (USA)",
-    "Virginia Polytechnic Institute and State University": "United States of America (USA)",
-    "Pacific Northwest National Laboratory": "United States of America (USA)",
-    "Usra Research Institute for Advanced Computer Science (RIACS)": "United States of America (USA)",
-    "USRA Research Institute for Advanced Computer Science": "United States of America (USA)",
-    "The NSF AI Institute for Artificial Intelligence and Fundamental Interactions": "United States of America (USA)",
-    "Co-Design Center for Quantum Advantage": "United States of America (USA)",
-    "Ibm Research": "United States of America (USA)",
-    "Ibm": "United States of America (USA)",
-    "IBM T. J. Watson Research Center": "United States of America (USA)",
-    "Ibm T.J. Watson Research Center": "United States of America (USA)",
-    "IBM Ret": "United States of America (USA)",
-    "IBM Quantum": "United States of America (USA)",
-    "Google": "United States of America (USA)",
-    "Microsoft": "United States of America (USA)",
-    "Microsoft Research": "United States of America (USA)",
-    "Microsoft Quantum": "United States of America (USA)",
-    "Intel Labs": "United States of America (USA)",
-    "Intel": "United States of America (USA)",
-    "JPMorgan Chase Co.": "United States of America (USA)",
-    "Wells Fargo": "United States of America (USA)",
-    "Qualcomm": "United States of America (USA)",
-    "Hewlett Packard Enterprise": "United States of America (USA)",
-    "Aerospace Corporation": "United States of America (USA)",
-    "Systems and Technology Research": "United States of America (USA)",
-    "Science Systems Applications Inc.": "United States of America (USA)",
-    "Nasa Earth Science Technology Office (ESTO)": "United States of America (USA)",
-    "Super.tech": "United States of America (USA)",
-    "Super.Tech": "United States of America (USA)",
-    "Super. Tech": "United States of America (USA)",
-    "Infleqtion": "United States of America (USA)",
-    "Commonwealth Edison": "United States of America (USA)",
-    "VMware XLabs": "United States of America (USA)",
-    "VMware Research": "United States of America (USA)",
-    "Julia Computing": "United States of America (USA)",
-    "Unitary Fund": "United States of America (USA)",
-    "The Center for Advanced Computer Studies": "United States of America (USA)",
-    "Center for Advanced Computer Studies": "United States of America (USA)",
-    "Keysight Technologies": "United States of America (USA)",
-    "Independent Scholar": "United States of America (USA)",
-    "S.A.": "United States of America (USA)",
-    "Inc.": "United States of America (USA)",
-    "10617": "United States of America (USA)",
-    "Canada": "Canada",
-    "Dalhousie University": "Canada",
-    "INRS": "Canada",
-    "Montr&#x00E9": "Canada",
-    "Mexico": "Mexico",
-    "People's Republic of China (PRC)": "People's Republic of China (PRC)",
-    "New York University Shanghai": "People's Republic of China (PRC)",
-    "Shanghai Jiao Tong University": "People's Republic of China (PRC)",
-    "Wuhan University": "People's Republic of China (PRC)",
-    "Anhui University of Science & amp": "People's Republic of China (PRC)",
-    "Fujian Science & amp": "People's Republic of China (PRC)",
-    "Beijing Key Laboratory of Nanophotonics & amp": "People's Republic of China (PRC)",
-    "Science and Technology Research Institute of Xian Railway Administration": "People's Republic of China (PRC)",
-    "JD Explore Academy": "People's Republic of China (PRC)",
-    "India": "India",
-    "Hcl Technologies": "India",
-    "SRM Institute of Science & amp": "India",
-    "Hindustan Institute of Technology & amp": "India",
-    "Vel Tech Rangarajan Dr. Sagunthala R & amp": "India",
-    "Hyderabad": "India",
-    "Japan": "Japan",
-    "Softbank": "Japan",
-    "NTT Secure Platform Laboratories": "Japan",
-    "NTT Science and Core Technology Laboratory Group": "Japan",
-    "South Korea": "South Korea",
-    "SKKU Advanced Institute of Nanotechnology (SAINT) & amp": "South Korea",
-    "Institute for Skeletal Aging & amp": "South Korea",
-    "Republic of China (ROC)": "Republic of China (ROC)",
-    "Ming Chi University of Technology": "Republic of China (ROC)",
-    "Hon Hai (Foxconn) Quantum Computing Centre": "Republic of China (ROC)",
-    "Singapore": "Singapore",
-    "Nanyang Technological University": "Singapore",
-    "Fraunhofer Singapore": "Singapore",
-    "Vietnam (VNM)": "Vietnam",
-    "Malaysia": "Malaysia",
-    "Pakistan": "Pakistan",
-    "Pakistan.": "Pakistan",
-    "Bangladesh": "Bangladesh",
-    "Thailand": "Thailand",
-    "Philippines": "Philippines",
-    "Indonesia": "Indonesia",
-    "Binus University": "Indonesia",
-    "Australia": "Australia",
-    "New Zealand": "New Zealand",
-    "Uzbekistan": "Uzbekistan",
-    "Kazakhstan": "Kazakhstan",
-    "Sri Lanka": "Sri Lanka",
-    "Nepal": "Nepal",
-    "Cambodia": "Cambodia",
-    "Myanmar": "Myanmar",
-    "Papua New Guinea": "Papua New Guinea",
-    "Afghanistan": "Afghanistan",
-    "Brunei Darussalam": "Brunei Darussalam",
-    "Iran": "Iran",
-    "Israel": "Israel",
-    "Saudi Arabia": "Saudi Arabia",
-    "Aramco": "Saudi Arabia",
-    "Aramco Overseas Company B.V.": "Saudi Arabia",
-    "Aramco Overseas Company BV": "Saudi Arabia",
-    "United Arab Emirates": "United Arab Emirates (UAE)",
-    "Qatar": "Qatar",
-    "Kuwait": "Kuwait",
-    "Jordan": "Jordan",
-    "Iraq": "Iraq",
-    "Al-Mustansiriyah University": "Iraq",
-    "Educational of Wasit": "Iraq",
-    "Oman": "Oman",
-    "Lebanon": "Lebanon",
-    "Syria": "Syria",
-    "Palestine": "Palestine",
-    "Bahrain": "Bahrain",
-    "Kingdom of Bahrain": "Bahrain",
-    "South Africa": "South Africa",
-    "Egypt": "Egypt",
-    "Morocco": "Morocco",
-    "Algeria": "Algeria",
-    "Nigeria": "Nigeria",
-    "Ethiopia": "Ethiopia",
-    "Kenya": "Kenya",
-    "Ghana": "Ghana",
-    "Tunisia": "Tunisia",
-    "Senegal": "Senegal",
-    "Tanzania": "Tanzania",
-    "Botswana": "Botswana",
-    "Zimbabwe": "Zimbabwe",
-    "Uganda": "Uganda",
-    "Rwanda": "Rwanda",
-    "Zambia": "Zambia",
-    "Lesotho": "Lesotho",
-    "Mauritius": "Mauritius",
-    "Madagascar": "Madagascar",
-    "Gabon": "Gabon",
-    "Cameroon": "Cameroon",
-    "Benin": "Benin",
-    "Angola": "Angola",
-    "Brazil": "Brazil",
-    "Argentina": "Argentina",
-    "Chile": "Chile",
-    "Colombia": "Colombia",
-    "Peru": "Peru",
-    "Ecuador": "Ecuador",
-    "Venezuela": "Venezuela",
-    "Uruguay": "Uruguay",
-    "Paraguay": "Paraguay",
-    "Costa Rica": "Costa Rica",
-    "Panama": "Panama",
-    "Cuba": "Cuba",
-    "Department of Computer Science &amp": "Unknown/Multi-Affiliation",
-    "College of Engineering Department of Biomedical Informatics": "United States of America (USA)",
-    "Department of Biomedical Engineering": "United States of America (USA)",
-    "School of Electronic Engineering": "People's Republic of China (PRC)",
-    "The authors contribute equally to this manuscript": "Unknown/Multi-Affiliation",
-    "Karmela Padavic-Callaghan is a physics reporter at New Scientist": "United Kingdom (UK)",
-    "Wëtä Digital + Unity": "New Zealand",
-    "Z-Axis Quantum": "Canada",
-    "AQuantum": "Spain",
-    "20squares": "Germany",
-    "Quantum Open Source Foundation": "Germany",
-    "Quant-X Security and amp": "Germany",
-    "Aemea Institute": "Africa (Regional)"
+    "canon_map": {
+        "10617": "United States of America (USA)",
+        "USA": "United States of America (USA)",
+        "United States": "United States of America (USA)",
+        "UK": "United Kingdom (UK)",
+        "United Kingdom": "United Kingdom (UK)",
+        "PRC": "People's Republic of China (PRC)",
+        "China": "People's Republic of China (PRC)",
+        "ROC": "Republic of China (ROC)",
+        "Taiwan": "Republic of China (ROC)",
+        "Russian Federation": "Russia",
+        "Russia": "Russia",
+        "The Netherlands": "Netherlands",
+        "UAE": "United Arab Emirates (UAE)",
+        "Viet Nam": "Vietnam",
+        "DRC": "Democratic Republic of the Congo (DRC)",
+        "Macao": "People's Republic of China (PRC)",
+        "Puerto Rico": "United States of America (USA)",
+        "American Samoa": "United States of America (USA)",
+        "Guam": "United States of America (USA)",
+        "Macau": "People's Republic of China (PRC)",
+        "Macau (MAC)": "People's Republic of China (PRC)",
+        "Hong Kong": "People's Republic of China (PRC)",
+        "Netherlands (NLD)": "Netherlands",
+        "Portugal": "Portugal",
+        "Spain": "Spain",
+        "IRTIC Institute & amp": "Spain",
+        "Telcfónica Global CTIO": "Spain",
+        "CTTC/CERCA": "Spain",
+        "NaNoNetworking Center in Catalonia": "Spain",
+        "Italy": "Italy",
+        "Universitandacute": "Italy",
+        "University of Palermo": "Italy",
+        "INFN Pisa": "Italy",
+        "The CNR-NANO Institute": "Italy",
+        "CNIT": "Italy",
+        "Sic": "Italy",
+        "Germany": "Germany",
+        "Johannes Gutenberg-Universität Mainz": "Germany",
+        "Helmholtz-Institut Mainz": "Germany",
+        "Fraunhofer SIT": "Germany",
+        "TRUMPF SE + Co. KG": "Germany",
+        "United Kingdom (UK)": "United Kingdom (UK)",
+        "United Kingdom.": "United Kingdom (UK)",
+        "University of Edinburgh": "United Kingdom (UK)",
+        "Bcs": "United Kingdom (UK)",
+        "France": "France",
+        "Université Côte d' Azur": "France",
+        "Thales Land and Air Systems": "France",
+        "CNRS": "France",
+        "Secure IC": "France",
+        "Quobly": "France",
+        "Switzerland": "Switzerland",
+        "CERN Openlab": "Switzerland",
+        "Ibm Research-Zu and Die": "Switzerland",
+        "TNO": "Netherlands",
+        "Quantum and Computer Engineering Department": "Netherlands",
+        "Sweden": "Sweden",
+        "Stockholm University": "Sweden",
+        "Ericsson Research": "Sweden",
+        "Russia (RUS)": "Russia",
+        "Volgograd Technical University": "Russia",
+        "Norway": "Norway",
+        "Sintef": "Norway",
+        "Turkey": "Turkey",
+        "Türkiye": "Turkey",
+        "European Theoretical Spectroscopy Facility (ETSF)": "European Union (EU)",
+        "European Theoretical Spectroscopy Facility": "European Union (EU)",
+        "Greece": "Greece",
+        "Belgium": "Belgium",
+        "Austria": "Austria",
+        "Denmark": "Denmark",
+        "Poland": "Poland",
+        "Finland": "Finland",
+        "Ireland": "Ireland",
+        "Czech Republic": "Czech Republic",
+        "Hungary": "Hungary",
+        "Romania": "Romania",
+        "Ukraine": "Ukraine",
+        "Estonia": "Estonia",
+        "Latvia": "Latvia",
+        "Luxembourg": "Luxembourg",
+        "Slovenia": "Slovenia",
+        "Bulgaria": "Bulgaria",
+        "Croatia": "Croatia",
+        "Lithuania": "Lithuania",
+        "Serbia": "Serbia",
+        "Montenegro": "Montenegro",
+        "Albania": "Albania",
+        "Bosnia and Herzegovina": "Bosnia and Herzegovina",
+        "Moldova": "Moldova",
+        "Belarus": "Belarus",
+        "Iceland": "Iceland",
+        "Malta": "Malta",
+        "North Macedonia": "North Macedonia",
+        "United States of America (USA)": "United States of America (USA)",
+        "Stanford University": "United States of America (USA)",
+        "Northeastern University": "United States of America (USA)",
+        "Mit": "United States of America (USA)",
+        "UCLA": "United States of America (USA)",
+        "Rutgers University": "United States of America (USA)",
+        "Ohio State University": "United States of America (USA)",
+        "University of Minnesota": "United States of America (USA)",
+        "Duke University": "United States of America (USA)",
+        "Princeton University": "United States of America (USA)",
+        "University Of Chicago": "United States of America (USA)",
+        "Georgia Institute of Technology": "United States of America (USA)",
+        "Caltech": "United States of America (USA)",
+        "University Of Denver": "United States of America (USA)",
+        "Virginia Polytechnic Institute and State University": "United States of America (USA)",
+        "Pacific Northwest National Laboratory": "United States of America (USA)",
+        "Usra Research Institute for Advanced Computer Science (RIACS)": "United States of America (USA)",
+        "USRA Research Institute for Advanced Computer Science": "United States of America (USA)",
+        "The NSF AI Institute for Artificial Intelligence and Fundamental Interactions": "United States of America (USA)",
+        "Co-Design Center for Quantum Advantage": "United States of America (USA)",
+        "Ibm Research": "United States of America (USA)",
+        "Ibm": "United States of America (USA)",
+        "IBM T. J. Watson Research Center": "United States of America (USA)",
+        "Ibm T.J. Watson Research Center": "United States of America (USA)",
+        "IBM Ret": "United States of America (USA)",
+        "IBM Quantum": "United States of America (USA)",
+        "Google": "United States of America (USA)",
+        "Microsoft": "United States of America (USA)",
+        "Microsoft Research": "United States of America (USA)",
+        "Microsoft Quantum": "United States of America (USA)",
+        "Intel Labs": "United States of America (USA)",
+        "Intel": "United States of America (USA)",
+        "JPMorgan Chase Co.": "United States of America (USA)",
+        "Wells Fargo": "United States of America (USA)",
+        "Qualcomm": "United States of America (USA)",
+        "Hewlett Packard Enterprise": "United States of America (USA)",
+        "Aerospace Corporation": "United States of America (USA)",
+        "Systems and Technology Research": "United States of America (USA)",
+        "Science Systems Applications Inc.": "United States of America (USA)",
+        "Nasa Earth Science Technology Office (ESTO)": "United States of America (USA)",
+        "Super.tech": "United States of America (USA)",
+        "Super.Tech": "United States of America (USA)",
+        "Super. Tech": "United States of America (USA)",
+        "Infleqtion": "United States of America (USA)",
+        "Commonwealth Edison": "United States of America (USA)",
+        "VMware XLabs": "United States of America (USA)",
+        "VMware Research": "United States of America (USA)",
+        "Julia Computing": "United States of America (USA)",
+        "Unitary Fund": "United States of America (USA)",
+        "The Center for Advanced Computer Studies": "United States of America (USA)",
+        "Center for Advanced Computer Studies": "United States of America (USA)",
+        "Keysight Technologies": "United States of America (USA)",
+        "Independent Scholar": "United States of America (USA)",
+        "S.A.": "United States of America (USA)",
+        "Inc.": "United States of America (USA)",
+        "Canada": "Canada",
+        "Dalhousie University": "Canada",
+        "INRS": "Canada",
+        "Montr&#x00E9": "Canada",
+        "Mexico": "Mexico",
+        "People's Republic of China (PRC)": "People's Republic of China (PRC)",
+        "New York University Shanghai": "People's Republic of China (PRC)",
+        "Shanghai Jiao Tong University": "People's Republic of China (PRC)",
+        "Wuhan University": "People's Republic of China (PRC)",
+        "Anhui University of Science & amp": "People's Republic of China (PRC)",
+        "Fujian Science & amp": "People's Republic of China (PRC)",
+        "Beijing Key Laboratory of Nanophotonics & amp": "People's Republic of China (PRC)",
+        "Science and Technology Research Institute of Xian Railway Administration": "People's Republic of China (PRC)",
+        "JD Explore Academy": "People's Republic of China (PRC)",
+        "India": "India",
+        "Hcl Technologies": "India",
+        "SRM Institute of Science & amp": "India",
+        "Hindustan Institute of Technology & amp": "India",
+        "Vel Tech Rangarajan Dr. Sagunthala R & amp": "India",
+        "Hyderabad": "India",
+        "Japan": "Japan",
+        "Softbank": "Japan",
+        "NTT Secure Platform Laboratories": "Japan",
+        "NTT Science and Core Technology Laboratory Group": "Japan",
+        "South Korea": "South Korea",
+        "SKKU Advanced Institute of Nanotechnology (SAINT) & amp": "South Korea",
+        "Institute for Skeletal Aging & amp": "South Korea",
+        "Republic of China (ROC)": "Republic of China (ROC)",
+        "Ming Chi University of Technology": "Republic of China (ROC)",
+        "Hon Hai (Foxconn) Quantum Computing Centre": "Republic of China (ROC)",
+        "Singapore": "Singapore",
+        "Nanyang Technological University": "Singapore",
+        "Fraunhofer Singapore": "Singapore",
+        "Vietnam (VNM)": "Vietnam",
+        "Malaysia": "Malaysia",
+        "Pakistan": "Pakistan",
+        "Pakistan.": "Pakistan",
+        "Bangladesh": "Bangladesh",
+        "Thailand": "Thailand",
+        "Philippines": "Philippines",
+        "Indonesia": "Indonesia",
+        "Binus University": "Indonesia",
+        "Australia": "Australia",
+        "New Zealand": "New Zealand",
+        "Uzbekistan": "Uzbekistan",
+        "Kazakhstan": "Kazakhstan",
+        "Sri Lanka": "Sri Lanka",
+        "Nepal": "Nepal",
+        "Cambodia": "Cambodia",
+        "Myanmar": "Myanmar",
+        "Papua New Guinea": "Papua New Guinea",
+        "Afghanistan": "Afghanistan",
+        "Brunei Darussalam": "Brunei Darussalam",
+        "Iran": "Iran",
+        "Israel": "Israel",
+        "Saudi Arabia": "Saudi Arabia",
+        "Aramco": "Saudi Arabia",
+        "Aramco Overseas Company B.V.": "Saudi Arabia",
+        "Aramco Overseas Company BV": "Saudi Arabia",
+        "United Arab Emirates": "United Arab Emirates (UAE)",
+        "Qatar": "Qatar",
+        "Kuwait": "Kuwait",
+        "Jordan": "Jordan",
+        "Iraq": "Iraq",
+        "Al-Mustansiriyah University": "Iraq",
+        "Educational of Wasit": "Iraq",
+        "Oman": "Oman",
+        "Lebanon": "Lebanon",
+        "Syria": "Syria",
+        "Palestine": "Palestine",
+        "Bahrain": "Bahrain",
+        "Kingdom of Bahrain": "Bahrain",
+        "South Africa": "South Africa",
+        "Egypt": "Egypt",
+        "Morocco": "Morocco",
+        "Algeria": "Algeria",
+        "Nigeria": "Nigeria",
+        "Ethiopia": "Ethiopia",
+        "Kenya": "Kenya",
+        "Ghana": "Ghana",
+        "Tunisia": "Tunisia",
+        "Senegal": "Senegal",
+        "Tanzania": "Tanzania",
+        "Botswana": "Botswana",
+        "Zimbabwe": "Zimbabwe",
+        "Uganda": "Uganda",
+        "Rwanda": "Rwanda",
+        "Zambia": "Zambia",
+        "Lesotho": "Lesotho",
+        "Mauritius": "Mauritius",
+        "Madagascar": "Madagascar",
+        "Gabon": "Gabon",
+        "Cameroon": "Cameroon",
+        "Benin": "Benin",
+        "Angola": "Angola",
+        "Brazil": "Brazil",
+        "Argentina": "Argentina",
+        "Chile": "Chile",
+        "Colombia": "Colombia",
+        "Peru": "Peru",
+        "Ecuador": "Ecuador",
+        "Venezuela": "Venezuela",
+        "Uruguay": "Uruguay",
+        "Paraguay": "Paraguay",
+        "Costa Rica": "Costa Rica",
+        "Panama": "Panama",
+        "Cuba": "Cuba",
+        "Department of Computer Science &amp": "Unknown/Multi-Affiliation",
+        "College of Engineering Department of Biomedical Informatics": "United States of America (USA)",
+        "Department of Biomedical Engineering": "United States of America (USA)",
+        "School of Electronic Engineering": "People's Republic of China (PRC)",
+        "The authors contribute equally to this manuscript": "Unknown/Multi-Affiliation",
+        "Karmela Padavic-Callaghan is a physics reporter at New Scientist": "United Kingdom (UK)",
+        "Wëtä Digital + Unity": "New Zealand",
+        "Z-Axis Quantum": "Canada",
+        "AQuantum": "Spain",
+        "20squares": "Germany",
+        "Quantum Open Source Foundation": "Germany",
+        "Quant-X Security and amp": "Germany",
+        "Aemea Institute": "Africa (Regional)"
+    },
+    "coords": {
+        "United States of America (USA)": [
+            37.09,
+            -95.71
+        ],
+        "United Kingdom (UK)": [
+            55.37,
+            -3.43
+        ],
+        "People's Republic of China (PRC)": [
+            35.86,
+            104.19
+        ],
+        "Republic of China (ROC)": [
+            23.69,
+            120.96
+        ],
+        "Russia": [
+            61.52,
+            105.31
+        ],
+        "Netherlands": [
+            52.13,
+            5.29
+        ],
+        "United Arab Emirates (UAE)": [
+            23.42,
+            53.84
+        ],
+        "Vietnam": [
+            14.06,
+            108.27
+        ],
+        "Democratic Republic of the Congo (DRC)": [
+            -4.04,
+            21.76
+        ],
+        "European Union (EU)": [
+            50.85,
+            4.35
+        ],
+        "Portugal": [
+            39.4,
+            -8.22
+        ],
+        "Spain": [
+            40.46,
+            -3.75
+        ],
+        "Italy": [
+            41.87,
+            12.57
+        ],
+        "Germany": [
+            51.17,
+            10.45
+        ],
+        "France": [
+            46.23,
+            2.21
+        ],
+        "Switzerland": [
+            46.82,
+            8.23
+        ],
+        "Sweden": [
+            60.13,
+            18.64
+        ],
+        "Norway": [
+            60.47,
+            8.47
+        ],
+        "Turkey": [
+            38.96,
+            35.24
+        ],
+        "Greece": [
+            39.07,
+            21.82
+        ],
+        "Belgium": [
+            50.5,
+            4.47
+        ],
+        "Austria": [
+            47.52,
+            14.55
+        ],
+        "Denmark": [
+            56.26,
+            9.5
+        ],
+        "Poland": [
+            51.92,
+            19.15
+        ],
+        "Finland": [
+            61.92,
+            25.75
+        ],
+        "Ireland": [
+            53.41,
+            -8.24
+        ],
+        "Czech Republic": [
+            49.82,
+            15.47
+        ],
+        "Hungary": [
+            47.16,
+            19.5
+        ],
+        "Romania": [
+            45.94,
+            24.97
+        ],
+        "Ukraine": [
+            48.38,
+            31.17
+        ],
+        "Estonia": [
+            58.6,
+            25.01
+        ],
+        "Latvia": [
+            56.88,
+            24.6
+        ],
+        "Luxembourg": [
+            49.82,
+            6.13
+        ],
+        "Slovenia": [
+            46.15,
+            14.99
+        ],
+        "Bulgaria": [
+            42.73,
+            25.49
+        ],
+        "Croatia": [
+            45.1,
+            15.2
+        ],
+        "Lithuania": [
+            55.17,
+            23.88
+        ],
+        "Serbia": [
+            44.02,
+            21.01
+        ],
+        "Montenegro": [
+            42.71,
+            19.37
+        ],
+        "Albania": [
+            41.15,
+            20.17
+        ],
+        "Bosnia and Herzegovina": [
+            43.92,
+            17.68
+        ],
+        "Moldova": [
+            47.41,
+            28.37
+        ],
+        "Belarus": [
+            53.71,
+            27.95
+        ],
+        "Iceland": [
+            64.96,
+            -19.02
+        ],
+        "Malta": [
+            35.94,
+            14.38
+        ],
+        "North Macedonia": [
+            41.61,
+            21.75
+        ],
+        "Canada": [
+            56.13,
+            -106.35
+        ],
+        "Mexico": [
+            23.63,
+            -102.55
+        ],
+        "India": [
+            20.59,
+            78.96
+        ],
+        "Japan": [
+            36.2,
+            138.25
+        ],
+        "South Korea": [
+            35.91,
+            127.77
+        ],
+        "Singapore": [
+            1.35,
+            103.82
+        ],
+        "Malaysia": [
+            4.21,
+            108.96
+        ],
+        "Pakistan": [
+            30.38,
+            69.35
+        ],
+        "Bangladesh": [
+            23.68,
+            90.36
+        ],
+        "Thailand": [
+            15.87,
+            100.99
+        ],
+        "Philippines": [
+            12.88,
+            121.77
+        ],
+        "Indonesia": [
+            -0.79,
+            113.92
+        ],
+        "Australia": [
+            -25.27,
+            133.78
+        ],
+        "New Zealand": [
+            -40.9,
+            174.89
+        ],
+        "Uzbekistan": [
+            41.38,
+            64.59
+        ],
+        "Kazakhstan": [
+            48.02,
+            66.92
+        ],
+        "Sri Lanka": [
+            7.87,
+            80.77
+        ],
+        "Nepal": [
+            28.39,
+            84.12
+        ],
+        "Cambodia": [
+            12.57,
+            104.99
+        ],
+        "Myanmar": [
+            21.92,
+            95.96
+        ],
+        "Papua New Guinea": [
+            -6.31,
+            143.96
+        ],
+        "Afghanistan": [
+            33.94,
+            67.71
+        ],
+        "Brunei Darussalam": [
+            4.54,
+            114.73
+        ],
+        "Iran": [
+            32.43,
+            53.69
+        ],
+        "Israel": [
+            31.05,
+            34.85
+        ],
+        "Saudi Arabia": [
+            23.89,
+            45.08
+        ],
+        "Qatar": [
+            25.35,
+            51.18
+        ],
+        "Kuwait": [
+            29.31,
+            47.48
+        ],
+        "Jordan": [
+            30.59,
+            36.24
+        ],
+        "Iraq": [
+            33.22,
+            43.68
+        ],
+        "Oman": [
+            21.51,
+            55.92
+        ],
+        "Lebanon": [
+            33.85,
+            35.86
+        ],
+        "Syria": [
+            34.8,
+            38.99
+        ],
+        "Palestine": [
+            31.95,
+            35.23
+        ],
+        "Bahrain": [
+            26,
+            50.55
+        ],
+        "South Africa": [
+            -30.56,
+            22.94
+        ],
+        "Egypt": [
+            26.82,
+            30.8
+        ],
+        "Morocco": [
+            31.79,
+            -7.09
+        ],
+        "Algeria": [
+            28.03,
+            1.66
+        ],
+        "Nigeria": [
+            9.08,
+            8.68
+        ],
+        "Ethiopia": [
+            9.15,
+            40.49
+        ],
+        "Kenya": [
+            -0.02,
+            37.91
+        ],
+        "Ghana": [
+            7.95,
+            -1.02
+        ],
+        "Tunisia": [
+            33.89,
+            9.54
+        ],
+        "Senegal": [
+            14.5,
+            -14.45
+        ],
+        "Tanzania": [
+            -6.37,
+            34.89
+        ],
+        "Botswana": [
+            -22.33,
+            24.68
+        ],
+        "Zimbabwe": [
+            -19.02,
+            29.15
+        ],
+        "Uganda": [
+            1.37,
+            32.29
+        ],
+        "Rwanda": [
+            -1.94,
+            29.87
+        ],
+        "Zambia": [
+            -13.13,
+            27.85
+        ],
+        "Lesotho": [
+            -29.61,
+            28.23
+        ],
+        "Mauritius": [
+            -20.35,
+            57.55
+        ],
+        "Madagascar": [
+            -18.77,
+            46.87
+        ],
+        "Gabon": [
+            -0.8,
+            11.61
+        ],
+        "Cameroon": [
+            3.85,
+            11.5
+        ],
+        "Benin": [
+            9.31,
+            2.32
+        ],
+        "Angola": [
+            -11.2,
+            17.87
+        ],
+        "Brazil": [
+            -14.24,
+            -51.93
+        ],
+        "Argentina": [
+            -38.42,
+            -63.62
+        ],
+        "Chile": [
+            -35.68,
+            -71.54
+        ],
+        "Colombia": [
+            4.57,
+            -74.3
+        ],
+        "Peru": [
+            -9.19,
+            -75.02
+        ],
+        "Ecuador": [
+            -1.83,
+            -78.18
+        ],
+        "Venezuela": [
+            6.42,
+            -66.59
+        ],
+        "Uruguay": [
+            -32.52,
+            -55.77
+        ],
+        "Paraguay": [
+            -23.44,
+            -58.44
+        ],
+        "Costa Rica": [
+            9.75,
+            -83.75
+        ],
+        "Panama": [
+            8.54,
+            -80.78
+        ],
+        "Cuba": [
+            21.52,
+            -77.78
+        ],
+        "Africa (Regional)": [
+            8.78,
+            34.51
+        ]
+    }
 }
