@@ -1,0 +1,5 @@
+{
+"path_to_patent_data": "/Users/lpaggen/Documents/network_science/data/datasets/patent_dataset.csv",
+"path_to_funding_data": "/Users/lpaggen/Documents/network_science/data/datasets/funding_dataset.csv",
+"path_to_research_data": "/Users/lpaggen/Documents/network_science/data/datasets/research_dataset.csv"
+}
