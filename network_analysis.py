@@ -26,6 +26,12 @@ def network_stats(G: nx.Graph, name: str) -> None:
           f"pct_largest={pct_largest:.1f}%, clustering={clustering:.4f}, diameter={diameter}")
 
 
+def betweenness(G: nx.Graph) -> dict[str, float]:
+    for u, v, d in G.edges(data=True):
+        d['distance'] = 1.0 / d['weight'] if d['weight'] > 0 else 0
+    return nx.betweenness_centrality(G, weight='distance', normalized=True)
+
+
 ### COUNTRY GRAPH ###
 
 def top_collaborators_excluding(G: nx.Graph, country: str, exclude: str = None, n: int = 1) -> list:

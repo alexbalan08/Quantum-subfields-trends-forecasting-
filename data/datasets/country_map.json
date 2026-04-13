@@ -5,23 +5,23 @@
         "United States": "United States of America (USA)",
         "UK": "United Kingdom (UK)",
         "United Kingdom": "United Kingdom (UK)",
-        "PRC": "People's Republic of China (PRC)",
-        "China": "People's Republic of China (PRC)",
-        "ROC": "Republic of China (ROC)",
-        "Taiwan": "Republic of China (ROC)",
+        "PRC": "China",
+        "China": "China",
+        "ROC": "Taiwan",
+        "Taiwan": "Taiwan",
         "Russian Federation": "Russia",
         "Russia": "Russia",
         "The Netherlands": "Netherlands",
         "UAE": "United Arab Emirates (UAE)",
         "Viet Nam": "Vietnam",
         "DRC": "Democratic Republic of the Congo (DRC)",
-        "Macao": "People's Republic of China (PRC)",
+        "Macao": "China",
         "Puerto Rico": "United States of America (USA)",
         "American Samoa": "United States of America (USA)",
         "Guam": "United States of America (USA)",
-        "Macau": "People's Republic of China (PRC)",
-        "Macau (MAC)": "People's Republic of China (PRC)",
-        "Hong Kong": "People's Republic of China (PRC)",
+        "Macau": "China",
+        "Macau (MAC)": "China",
+        "Hong Kong": "China",
         "Netherlands (NLD)": "Netherlands",
         "Portugal": "Portugal",
         "Spain": "Spain",
@@ -154,15 +154,15 @@
         "INRS": "Canada",
         "Montr&#x00E9": "Canada",
         "Mexico": "Mexico",
-        "People's Republic of China (PRC)": "People's Republic of China (PRC)",
-        "New York University Shanghai": "People's Republic of China (PRC)",
-        "Shanghai Jiao Tong University": "People's Republic of China (PRC)",
-        "Wuhan University": "People's Republic of China (PRC)",
-        "Anhui University of Science & amp": "People's Republic of China (PRC)",
-        "Fujian Science & amp": "People's Republic of China (PRC)",
-        "Beijing Key Laboratory of Nanophotonics & amp": "People's Republic of China (PRC)",
-        "Science and Technology Research Institute of Xian Railway Administration": "People's Republic of China (PRC)",
-        "JD Explore Academy": "People's Republic of China (PRC)",
+        "People's Republic of China (PRC)": "China",
+        "New York University Shanghai": "China",
+        "Shanghai Jiao Tong University": "China",
+        "Wuhan University": "China",
+        "Anhui University of Science & amp": "China",
+        "Fujian Science & amp": "China",
+        "Beijing Key Laboratory of Nanophotonics & amp": "China",
+        "Science and Technology Research Institute of Xian Railway Administration": "China",
+        "JD Explore Academy": "China",
         "India": "India",
         "Hcl Technologies": "India",
         "SRM Institute of Science & amp": "India",
@@ -176,9 +176,9 @@
         "South Korea": "South Korea",
         "SKKU Advanced Institute of Nanotechnology (SAINT) & amp": "South Korea",
         "Institute for Skeletal Aging & amp": "South Korea",
-        "Republic of China (ROC)": "Republic of China (ROC)",
-        "Ming Chi University of Technology": "Republic of China (ROC)",
-        "Hon Hai (Foxconn) Quantum Computing Centre": "Republic of China (ROC)",
+        "Republic of China (ROC)": "Taiwan",
+        "Ming Chi University of Technology": "Taiwan",
+        "Hon Hai (Foxconn) Quantum Computing Centre": "Taiwan",
         "Singapore": "Singapore",
         "Nanyang Technological University": "Singapore",
         "Fraunhofer Singapore": "Singapore",
@@ -259,7 +259,7 @@
         "Department of Computer Science &amp": "Unknown/Multi-Affiliation",
         "College of Engineering Department of Biomedical Informatics": "United States of America (USA)",
         "Department of Biomedical Engineering": "United States of America (USA)",
-        "School of Electronic Engineering": "People's Republic of China (PRC)",
+        "School of Electronic Engineering": "China",
         "The authors contribute equally to this manuscript": "Unknown/Multi-Affiliation",
         "Karmela Padavic-Callaghan is a physics reporter at New Scientist": "United Kingdom (UK)",
         "Wëtä Digital + Unity": "New Zealand",
@@ -271,473 +271,144 @@
         "Aemea Institute": "Africa (Regional)"
     },
     "coords": {
-        "United States of America (USA)": [
-            37.09,
-            -95.71
-        ],
-        "United Kingdom (UK)": [
-            55.37,
-            -3.43
-        ],
-        "People's Republic of China (PRC)": [
-            35.86,
-            104.19
-        ],
-        "Republic of China (ROC)": [
-            23.69,
-            120.96
-        ],
-        "Russia": [
-            61.52,
-            105.31
-        ],
-        "Netherlands": [
-            52.13,
-            5.29
-        ],
-        "United Arab Emirates (UAE)": [
-            23.42,
-            53.84
-        ],
-        "Vietnam": [
-            14.06,
-            108.27
-        ],
-        "Democratic Republic of the Congo (DRC)": [
-            -4.04,
-            21.76
-        ],
-        "European Union (EU)": [
-            50.85,
-            4.35
-        ],
-        "Portugal": [
-            39.4,
-            -8.22
-        ],
-        "Spain": [
-            40.46,
-            -3.75
-        ],
-        "Italy": [
-            41.87,
-            12.57
-        ],
-        "Germany": [
-            51.17,
-            10.45
-        ],
-        "France": [
-            46.23,
-            2.21
-        ],
-        "Switzerland": [
-            46.82,
-            8.23
-        ],
-        "Sweden": [
-            60.13,
-            18.64
-        ],
-        "Norway": [
-            60.47,
-            8.47
-        ],
-        "Turkey": [
-            38.96,
-            35.24
-        ],
-        "Greece": [
-            39.07,
-            21.82
-        ],
-        "Belgium": [
-            50.5,
-            4.47
-        ],
-        "Austria": [
-            47.52,
-            14.55
-        ],
-        "Denmark": [
-            56.26,
-            9.5
-        ],
-        "Poland": [
-            51.92,
-            19.15
-        ],
-        "Finland": [
-            61.92,
-            25.75
-        ],
-        "Ireland": [
-            53.41,
-            -8.24
-        ],
-        "Czech Republic": [
-            49.82,
-            15.47
-        ],
-        "Hungary": [
-            47.16,
-            19.5
-        ],
-        "Romania": [
-            45.94,
-            24.97
-        ],
-        "Ukraine": [
-            48.38,
-            31.17
-        ],
-        "Estonia": [
-            58.6,
-            25.01
-        ],
-        "Latvia": [
-            56.88,
-            24.6
-        ],
-        "Luxembourg": [
-            49.82,
-            6.13
-        ],
-        "Slovenia": [
-            46.15,
-            14.99
-        ],
-        "Bulgaria": [
-            42.73,
-            25.49
-        ],
-        "Croatia": [
-            45.1,
-            15.2
-        ],
-        "Lithuania": [
-            55.17,
-            23.88
-        ],
-        "Serbia": [
-            44.02,
-            21.01
-        ],
-        "Montenegro": [
-            42.71,
-            19.37
-        ],
-        "Albania": [
-            41.15,
-            20.17
-        ],
-        "Bosnia and Herzegovina": [
-            43.92,
-            17.68
-        ],
-        "Moldova": [
-            47.41,
-            28.37
-        ],
-        "Belarus": [
-            53.71,
-            27.95
-        ],
-        "Iceland": [
-            64.96,
-            -19.02
-        ],
-        "Malta": [
-            35.94,
-            14.38
-        ],
-        "North Macedonia": [
-            41.61,
-            21.75
-        ],
-        "Canada": [
-            56.13,
-            -106.35
-        ],
-        "Mexico": [
-            23.63,
-            -102.55
-        ],
-        "India": [
-            20.59,
-            78.96
-        ],
-        "Japan": [
-            36.2,
-            138.25
-        ],
-        "South Korea": [
-            35.91,
-            127.77
-        ],
-        "Singapore": [
-            1.35,
-            103.82
-        ],
-        "Malaysia": [
-            4.21,
-            108.96
-        ],
-        "Pakistan": [
-            30.38,
-            69.35
-        ],
-        "Bangladesh": [
-            23.68,
-            90.36
-        ],
-        "Thailand": [
-            15.87,
-            100.99
-        ],
-        "Philippines": [
-            12.88,
-            121.77
-        ],
-        "Indonesia": [
-            -0.79,
-            113.92
-        ],
-        "Australia": [
-            -25.27,
-            133.78
-        ],
-        "New Zealand": [
-            -40.9,
-            174.89
-        ],
-        "Uzbekistan": [
-            41.38,
-            64.59
-        ],
-        "Kazakhstan": [
-            48.02,
-            66.92
-        ],
-        "Sri Lanka": [
-            7.87,
-            80.77
-        ],
-        "Nepal": [
-            28.39,
-            84.12
-        ],
-        "Cambodia": [
-            12.57,
-            104.99
-        ],
-        "Myanmar": [
-            21.92,
-            95.96
-        ],
-        "Papua New Guinea": [
-            -6.31,
-            143.96
-        ],
-        "Afghanistan": [
-            33.94,
-            67.71
-        ],
-        "Brunei Darussalam": [
-            4.54,
-            114.73
-        ],
-        "Iran": [
-            32.43,
-            53.69
-        ],
-        "Israel": [
-            31.05,
-            34.85
-        ],
-        "Saudi Arabia": [
-            23.89,
-            45.08
-        ],
-        "Qatar": [
-            25.35,
-            51.18
-        ],
-        "Kuwait": [
-            29.31,
-            47.48
-        ],
-        "Jordan": [
-            30.59,
-            36.24
-        ],
-        "Iraq": [
-            33.22,
-            43.68
-        ],
-        "Oman": [
-            21.51,
-            55.92
-        ],
-        "Lebanon": [
-            33.85,
-            35.86
-        ],
-        "Syria": [
-            34.8,
-            38.99
-        ],
-        "Palestine": [
-            31.95,
-            35.23
-        ],
-        "Bahrain": [
-            26,
-            50.55
-        ],
-        "South Africa": [
-            -30.56,
-            22.94
-        ],
-        "Egypt": [
-            26.82,
-            30.8
-        ],
-        "Morocco": [
-            31.79,
-            -7.09
-        ],
-        "Algeria": [
-            28.03,
-            1.66
-        ],
-        "Nigeria": [
-            9.08,
-            8.68
-        ],
-        "Ethiopia": [
-            9.15,
-            40.49
-        ],
-        "Kenya": [
-            -0.02,
-            37.91
-        ],
-        "Ghana": [
-            7.95,
-            -1.02
-        ],
-        "Tunisia": [
-            33.89,
-            9.54
-        ],
-        "Senegal": [
-            14.5,
-            -14.45
-        ],
-        "Tanzania": [
-            -6.37,
-            34.89
-        ],
-        "Botswana": [
-            -22.33,
-            24.68
-        ],
-        "Zimbabwe": [
-            -19.02,
-            29.15
-        ],
-        "Uganda": [
-            1.37,
-            32.29
-        ],
-        "Rwanda": [
-            -1.94,
-            29.87
-        ],
-        "Zambia": [
-            -13.13,
-            27.85
-        ],
-        "Lesotho": [
-            -29.61,
-            28.23
-        ],
-        "Mauritius": [
-            -20.35,
-            57.55
-        ],
-        "Madagascar": [
-            -18.77,
-            46.87
-        ],
-        "Gabon": [
-            -0.8,
-            11.61
-        ],
-        "Cameroon": [
-            3.85,
-            11.5
-        ],
-        "Benin": [
-            9.31,
-            2.32
-        ],
-        "Angola": [
-            -11.2,
-            17.87
-        ],
-        "Brazil": [
-            -14.24,
-            -51.93
-        ],
-        "Argentina": [
-            -38.42,
-            -63.62
-        ],
-        "Chile": [
-            -35.68,
-            -71.54
-        ],
-        "Colombia": [
-            4.57,
-            -74.3
-        ],
-        "Peru": [
-            -9.19,
-            -75.02
-        ],
-        "Ecuador": [
-            -1.83,
-            -78.18
-        ],
-        "Venezuela": [
-            6.42,
-            -66.59
-        ],
-        "Uruguay": [
-            -32.52,
-            -55.77
-        ],
-        "Paraguay": [
-            -23.44,
-            -58.44
-        ],
-        "Costa Rica": [
-            9.75,
-            -83.75
-        ],
-        "Panama": [
-            8.54,
-            -80.78
-        ],
-        "Cuba": [
-            21.52,
-            -77.78
-        ],
-        "Africa (Regional)": [
-            8.78,
-            34.51
-        ]
+    "United States of America (USA)": [38.91, -77.04],
+    "United Kingdom (UK)": [51.51, -0.13],
+    "China": [39.91, 116.39],
+    "Taiwan": [25.05, 121.56],
+    "Russia": [55.75, 37.62],
+    "Netherlands": [52.37, 4.90],
+    "United Arab Emirates (UAE)": [24.47, 54.37],
+    "Vietnam": [21.03, 105.85],
+    "Democratic Republic of the Congo (DRC)": [-4.32, 15.32],
+    "European Union (EU)": [50.85, 4.35],
+    "Portugal": [38.72, -9.14],
+    "Spain": [40.42, -3.70],
+    "Italy": [41.90, 12.50],
+    "Germany": [52.52, 13.40],
+    "France": [48.86, 2.35],
+    "Switzerland": [46.95, 7.45],
+    "Sweden": [59.33, 18.07],
+    "Norway": [59.91, 10.75],
+    "Turkey": [39.93, 32.86],
+    "Greece": [37.98, 23.73],
+    "Belgium": [50.85, 4.35],
+    "Austria": [48.21, 16.37],
+    "Denmark": [55.68, 12.57],
+    "Poland": [52.23, 21.01],
+    "Finland": [60.17, 24.94],
+    "Ireland": [53.33, -6.25],
+    "Czech Republic": [50.08, 14.42],
+    "Hungary": [47.50, 19.05],
+    "Romania": [44.43, 26.10],
+    "Ukraine": [50.45, 30.52],
+    "Estonia": [59.44, 24.75],
+    "Latvia": [56.95, 24.11],
+    "Luxembourg": [49.61, 6.13],
+    "Slovenia": [46.05, 14.51],
+    "Slovakia": [48.15, 17.11],
+    "Georgia": [41.69, 44.83],
+    "Vatican": [41.90, 12.45],
+    "Mali": [12.65, -8.00],
+    "Jersey": [49.21, -2.13],
+    "Niger": [13.51, 2.11],
+    "Cyprus": [35.17, 33.36],
+    "Togo": [6.14, 1.22],
+    "North Korea": [39.02, 125.75],
+    "Guinea": [9.54, -13.68],
+    "Libya": [32.90, 13.18],
+    "Azerbaijan": [40.41, 49.87],
+    "Mongolia": [47.91, 106.88],
+    "Anguilla": [18.22, -63.07],
+    "Sudan": [15.55, 32.53],
+    "Yemen": [15.35, 44.21],
+    "Fiji": [-18.14, 178.44],
+    "Saint Lucia": [14.01, -60.99],
+    "Armenia": [40.18, 44.51],
+    "Laos": [17.97, 102.60],
+    "Trinidad and Tobago": [10.65, -61.52],
+    "Haiti": [18.54, -72.34],
+    "Bulgaria": [42.70, 23.32],
+    "Croatia": [45.81, 15.98],
+    "Lithuania": [54.69, 25.28],
+    "Serbia": [44.80, 20.47],
+    "Montenegro": [42.44, 19.26],
+    "Albania": [41.33, 19.83],
+    "Bosnia and Herzegovina": [43.85, 18.36],
+    "Moldova": [47.01, 28.86],
+    "Belarus": [53.90, 27.57],
+    "Iceland": [64.14, -21.90],
+    "Malta": [35.90, 14.51],
+    "North Macedonia": [42.00, 21.43],
+    "Canada": [45.42, -75.70],
+    "Mexico": [19.43, -99.13],
+    "India": [28.61, 77.21],
+    "Japan": [35.69, 139.69],
+    "South Korea": [37.57, 126.98],
+    "Singapore": [1.35, 103.82],
+    "Malaysia": [3.15, 101.69],
+    "Pakistan": [33.72, 73.06],
+    "Bangladesh": [23.81, 90.41],
+    "Thailand": [13.75, 100.52],
+    "Philippines": [14.60, 120.98],
+    "Indonesia": [-6.21, 106.85],
+    "Australia": [-35.31, 149.12],
+    "New Zealand": [-41.29, 174.78],
+    "Uzbekistan": [41.30, 69.24],
+    "Kazakhstan": [51.18, 71.45],
+    "Sri Lanka": [6.93, 79.85],
+    "Nepal": [27.71, 85.32],
+    "Cambodia": [11.56, 104.92],
+    "Myanmar": [19.76, 96.08],
+    "Papua New Guinea": [-9.44, 147.18],
+    "Afghanistan": [34.53, 69.17],
+    "Brunei Darussalam": [4.94, 114.95],
+    "Iran": [35.69, 51.42],
+    "Israel": [31.77, 35.22],
+    "Saudi Arabia": [24.69, 46.72],
+    "Qatar": [25.29, 51.53],
+    "Kuwait": [29.37, 47.98],
+    "Jordan": [31.95, 35.93],
+    "Iraq": [33.34, 44.40],
+    "Oman": [23.61, 58.59],
+    "Lebanon": [33.89, 35.50],
+    "Syria": [33.51, 36.29],
+    "Palestine": [31.90, 35.20],
+    "Bahrain": [26.22, 50.59],
+    "South Africa": [-25.74, 28.19],
+    "Egypt": [30.06, 31.25],
+    "Morocco": [33.99, -6.85],
+    "Algeria": [36.74, 3.06],
+    "Nigeria": [9.07, 7.40],
+    "Ethiopia": [9.03, 38.74],
+    "Kenya": [-1.29, 36.82],
+    "Ghana": [5.56, -0.20],
+    "Tunisia": [36.82, 10.17],
+    "Senegal": [14.72, -17.47],
+    "Tanzania": [-6.17, 35.74],
+    "Botswana": [-24.65, 25.91],
+    "Zimbabwe": [-17.83, 31.05],
+    "Uganda": [0.32, 32.58],
+    "Rwanda": [-1.95, 30.06],
+    "Zambia": [-15.42, 28.28],
+    "Lesotho": [-29.32, 27.48],
+    "Mauritius": [-20.16, 57.50],
+    "Madagascar": [-18.91, 47.54],
+    "Gabon": [0.39, 9.45],
+    "Cameroon": [3.87, 11.52],
+    "Benin": [6.37, 2.42],
+    "Angola": [-8.84, 13.23],
+    "Brazil": [-15.78, -47.93],
+    "Argentina": [-34.61, -58.37],
+    "Chile": [-33.46, -70.65],
+    "Colombia": [4.71, -74.07],
+    "Peru": [-12.05, -77.04],
+    "Ecuador": [-0.23, -78.52],
+    "Venezuela": [10.48, -66.88],
+    "Uruguay": [-34.90, -56.19],
+    "Paraguay": [-25.28, -57.64],
+    "Costa Rica": [9.93, -84.08],
+    "Panama": [8.99, -79.52],
+    "Cuba": [23.13, -82.38],
+    "Africa (Regional)": [8.78, 34.51]
     }
 }
