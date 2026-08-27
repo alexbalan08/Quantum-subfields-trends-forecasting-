@@ -56,7 +56,7 @@ def load_and_prepare_data(path_to_config=file_path):
     combined["Country"] = combined["Country"].apply(normalize_country_name)
 
     valid_countries = set(research_exploded["Country"].unique())
-    filtered_combined = combined[combined["Country"].isin(valid_countries)]
+    filtered_combined = combined[combined["Country"].isin(valid_countries)].copy()
 
 
     filtered_combined["Total"] = filtered_combined["Research_Count"] + filtered_combined["Patent_Count"]

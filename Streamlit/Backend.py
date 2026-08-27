@@ -135,6 +135,7 @@ def run_forecast(label_name, w_patents, w_research, w_financial, alpha, combined
     w_financial * df["Financial"]
 )
     df = df[(df["Year"] >= 2017) & (df["Year"] <= 2024)]
+    df = df.sort_values("Year").reset_index(drop=True)
 
     #we use only 2024 for validation rest for training initally
     #2024 has the most data
@@ -142,12 +143,12 @@ def run_forecast(label_name, w_patents, w_research, w_financial, alpha, combined
     train_df = df[df["Year"] <= 2023]
     val_df = df[df["Year"] == 2024]
 
-    X_train = train_df["Year"].values.reshape(-1, 1)
+    X_train = (train_df["Year"].values - 2017).reshape(-1, 1)
     y_train = train_df["CustomScore"].values
-    X_val = val_df["Year"].values.reshape(-1, 1)
+    X_val = (val_df["Year"].values - 2017).reshape(-1, 1)
     y_val = val_df["WeightedScore"].values
 
-    poly = PolynomialFeatures(degree= degree)
+    poly = PolynomialFeatures(degree=degree, include_bias=False)
     X_train_poly = poly.fit_transform(X_train)
     X_val_poly = poly.transform(X_val)
 
@@ -179,7 +180,7 @@ def run_forecast(label_name, w_patents, w_research, w_financial, alpha, combined
     # X_future = np.arange(2025, 2029).reshape(-1, 1)
     # y_future = model.predict(poly.transform(X_future))
     X_future = np.array(future_years).reshape(-1, 1)
-    y_future = model.predict(poly.transform(X_future))
+    y_future = model.predict(poly.transform(X_future - 2017))
 
     
     all_years = np.concatenate([df["Year"].values, X_future.flatten()])
