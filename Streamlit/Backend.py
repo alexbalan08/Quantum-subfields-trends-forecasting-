@@ -37,8 +37,9 @@ def prepare_data():
     financial_grouped = financial_long.groupby("year", as_index=False)["Count"].sum()
     financial_grouped.rename(columns={"year": "Year", "Count": "Financial"}, inplace=True)
 
-    scaler = MinMaxScaler()
-    financial_grouped["Financial_normalized"] = scaler.fit_transform(financial_grouped[["Financial"]])
+    financial_scaler = MinMaxScaler()
+    financial_scaler.fit(financial_grouped.loc[financial_grouped["Year"] <= 2023, ["Financial"]])
+    financial_grouped["Financial_normalized"] = financial_scaler.transform(financial_grouped[["Financial"]])
 
     #Because we will use per year index prediction we need to group all data by year so we count 
     #each different label per each year
@@ -54,9 +55,12 @@ def prepare_data():
     combined = pd.merge(patent_counts, research_counts, on=["Year", "Label"], how="outer", suffixes=("_patents", "_research"))
     combined = pd.merge(combined, financial_grouped[["Year", "Financial_normalized"]], on="Year", how="left")
     combined.fillna(0, inplace=True)
+    combined = combined[~combined["Label"].isin(["error", "invalid_label"])].copy()
 
     #the final normalization for the counts
-    combined[["Count_patents", "Count_research"]] = scaler.fit_transform(combined[["Count_patents", "Count_research"]])
+    count_scaler = MinMaxScaler()
+    count_scaler.fit(combined.loc[combined["Year"] <= 2023, ["Count_patents", "Count_research"]])
+    combined[["Count_patents", "Count_research"]] = count_scaler.transform(combined[["Count_patents", "Count_research"]])
     combined.rename(columns={"Financial_normalized": "Financial"}, inplace=True)
 
     #we start with this basic but we can oveeride this later from the GUI !!!
@@ -70,17 +74,14 @@ def prepare_data():
     )
     #!!!
 
-    
-    combined = combined[~combined["Label"].isin(["error", "invalid_label"])].copy()
-
     #we calculate how many patents + research papers are for each topic in particular
     #then we create another collumn with counts that we use for our final data 
     #this will also be used to determine the degree of the model depending on how much data is there
-    patent_counts_per_label = patents["Label"].value_counts().reset_index()
+    patent_counts_per_label = patents.loc[patents["Year"] <= 2023, "Label"].value_counts().reset_index()
     patent_counts_per_label.columns = ["Label", "Patent_Count"]
 
     #this exaclty the same 
-    research_counts_per_label = research["Label"].value_counts().reset_index()
+    research_counts_per_label = research.loc[research["Year"] <= 2023, "Label"].value_counts().reset_index()
     research_counts_per_label.columns = ["Label", "Research_Count"]
 
     label_counts = pd.merge(patent_counts_per_label, research_counts_per_label, on="Label", how="outer").fillna(0)
@@ -146,7 +147,7 @@ def run_forecast(label_name, w_patents, w_research, w_financial, alpha, combined
     X_train = (train_df["Year"].values - 2017).reshape(-1, 1)
     y_train = train_df["CustomScore"].values
     X_val = (val_df["Year"].values - 2017).reshape(-1, 1)
-    y_val = val_df["WeightedScore"].values
+    y_val = val_df["CustomScore"].values
 
     poly = PolynomialFeatures(degree=degree, include_bias=False)
     X_train_poly = poly.fit_transform(X_train)
@@ -174,7 +175,7 @@ def run_forecast(label_name, w_patents, w_research, w_financial, alpha, combined
 
     ##we uncomment this if we want to reuse all data for traiing 
 
-    y_plot = df["WeightedScore"].values
+    y_plot = df["CustomScore"].values
     y_full   = y_plot 
 
     # X_future = np.arange(2025, 2029).reshape(-1, 1)
@@ -191,7 +192,7 @@ def run_forecast(label_name, w_patents, w_research, w_financial, alpha, combined
     #baseline is just the last year available so 2024 we get with index -1
     baseline = y_full[-1]
     growth = [((score - baseline) / baseline) * 100 if baseline > 0 else 0 for score in y_future]
-    growth_scores = [baseline * (1 + g / 100) for g in growth]
+    growth_scores = [baseline * (1 + g / 100) if baseline > 0 else score for g, score in zip(growth, y_future)]
  
 
     fig, ax = plt.subplots(figsize=(10, 5))
