@@ -1,0 +1,4 @@
+scheme_a,scheme_b,spearman
+Base,Equal weights,0.9934
+Base,No funding,0.9087
+Equal weights,No funding,0.9162

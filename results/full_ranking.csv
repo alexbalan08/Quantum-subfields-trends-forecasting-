@@ -1,0 +1,39 @@
+subfield,records,degree,pred_2028_Base,rank_Base,rank_Equal weights,rank_No funding,error_2024_Base
+quantum computing,7060,3,3.5089,1,1,1,0.0256
+quantum hardware,3587,3,3.0299,2,3,3,0.2137
+quantum computing applications,4610,3,2.7126,3,2,2,0.1125
+quantum computing hardware (hybrid),3340,3,2.1202,4,4,4,0.2059
+quantum cryptography,3068,3,1.9519,5,6,7,0.0679
+quantum optimization,3965,3,1.8909,6,5,5,0.0594
+quantum sensing,3155,3,1.1562,7,8,28,0.0730
+quantum security tools,2040,3,1.1344,8,7,24,0.0430
+quantum machine learning,1334,2,0.9524,9,9,6,0.0619
+quantum control,1812,2,0.7422,10,11,9,0.0443
+quantum algorithms,1858,2,0.7238,11,10,8,0.0158
+quantum error correction,1507,2,0.6202,12,12,10,0.0254
+quantum communication,1299,2,0.5734,13,13,11,0.0046
+quantum computing theory,1531,2,0.4637,14,14,12,0.0244
+quantum error mitigation,536,1,0.2654,15,15,13,0.0067
+quantum simulation,595,1,0.2480,16,16,14,0.0023
+quantum distributed computing,434,1,0.2214,17,17,15,0.0031
+quantum image processing,807,1,0.2013,18,20,18,0.0078
+quantum compilation,325,1,0.2003,19,19,17,0.0188
+quantum signal processing,649,1,0.2000,20,21,19,0.0071
+quantum coherence,616,1,0.1966,21,18,16,0.0072
+quantum state tomography,366,1,0.1902,22,22,20,0.0156
+quantum data structures,304,1,0.1755,23,23,21,0.0132
+quantum conversion,374,1,0.1603,24,24,22,0.0212
+quantum computing in ai,87,1,0.1425,25,25,23,0.0050
+quantum software tools,99,1,0.1384,26,26,25,0.0016
+quantum information theory,98,1,0.1281,27,27,26,0.0095
+quantum metrology,97,1,0.1262,28,28,27,0.0165
+quantum visualization tools,71,1,0.1231,29,30,30,0.0190
+quantum noise spectroscopy,33,1,0.1222,30,31,31,0.0162
+quantum logic gates,97,1,0.1221,31,34,34,0.0129
+quantum thermodynamics,64,1,0.1216,32,29,29,0.0154
+quantum reinforcement learning,26,1,0.1212,33,33,33,0.0067
+quantum surface codes,29,1,0.1196,34,35,35,0.0160
+quantum computational complexity,49,1,0.1195,35,32,32,0.0197
+quantum fidelity estimation,20,1,0.1181,36,38,38,0.0160
+quantum resource theory,47,1,0.1173,37,37,37,0.0128
+quantum workforce development,17,1,0.1172,38,36,36,0.0161

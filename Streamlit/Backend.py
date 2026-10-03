@@ -27,6 +27,7 @@ def prepare_data():
         config = json.load(f)
     patents = pd.read_csv(config['path_to_patent_data'])
     research = pd.read_csv(config['path_to_research_data'])
+    research = research[research["Label"] != "quantum computing foundations"]
     financial = pd.read_csv(config['path_to_funding_data'], sep=";")
 
     patents.rename(columns={"Publication Year": "Year"}, inplace=True)

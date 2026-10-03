@@ -1,0 +1,8 @@
+model,abs_error
+Polynomial ridge,0.0679
+Linear ridge,0.0669
+Random Forest,0.1326
+XGBoost,0.0947
+Naive,0.0936
+Degree 2,0.0008
+Degree 5,0.2011

@@ -1,0 +1,16 @@
+scheme,model,rmse,best_in_n_subfields
+Base,Polynomial ridge,0.0581,12
+Base,Linear ridge,0.0889,3
+Base,Random Forest,0.1182,18
+Base,XGBoost,0.0930,3
+Base,Naive,0.0928,2
+Equal weights,Polynomial ridge,0.1684,0
+Equal weights,Linear ridge,0.0680,1
+Equal weights,Random Forest,0.0798,31
+Equal weights,XGBoost,0.0983,1
+Equal weights,Naive,0.0992,5
+No funding,Polynomial ridge,0.0696,23
+No funding,Linear ridge,0.1079,3
+No funding,Random Forest,0.1406,1
+No funding,XGBoost,0.1175,2
+No funding,Naive,0.1169,9
