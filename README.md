@@ -12,7 +12,7 @@ Moreover, Leo contributed with the network science part, by analyzing collaborat
 Publications and patents were retrieved with the single keyword *quantum* rather than a fixed list of terms or patent classification codes, so that no subfield is left out in advance. Records that turned out not to be about quantum technology were removed in the labeling step.
 
 ### Research Publications
-- Collected between **2017–2024**, 25,000 publications from *Scopus library*.
+- Collected between **2017–2025**, 25,000 publications from *Scopus library*.
 - Each publication labeled into one of the **38 verified quantum subfields** with **Claude 3 Haiku API**
 - Invalid or uncertain classifications were excluded, so all data is ready for modelling
 
@@ -70,10 +70,6 @@ The repository also contains the datasets, the institution-normalization maps, a
 Before cecking the streamlit folder, please look over the notebooks.
 The report presents the work in detail as well.
 
----
-
-## Paper
-This work is accepted at **BNAIC/BeNeLearn 2026** (Maastricht, October 2026).
 
 ---
 ## Creators:
