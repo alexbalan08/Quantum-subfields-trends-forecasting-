@@ -21,7 +21,8 @@ ALPHA = 0.1
 FIRST_YEAR = 2017
 TEST_YEAR = 2024
 SEED = 42
-EXAMPLE_SUBFIELD = "quantum cryptography"
+TOP_K = [5, 10]
+EXAMPLE_SUBFIELD ="quantum cryptography"
 DEFAULT_OUT_DIR = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "results")
 
 
@@ -45,6 +46,11 @@ def predict(model_name, degree, X_train, y_train, X_test):
     return float(XGBRegressor(random_state=SEED).fit(X_train, y_train).predict(X_test)[0])
 
 
+def wins(g):
+    # subfields where each model has the lowest error; identical models (degree 1 vs linear ridge) share the win
+    return g[MODELS].eq(g[MODELS].min(axis=1), axis=0).sum()
+
+
 def rmse(e):
     return float(np.sqrt((e ** 2).mean()))
 
@@ -57,7 +63,7 @@ def main():
     label_counts = label_counts[~label_counts["Label"].isin(["error", "invalid_label"])]
     financial_by_year = combined.groupby("Year")["Financial"].first()
 
-    rows = []
+    rows, pred_rows = [], []
     for _, lc in label_counts.iterrows():
         label = lc["Label"]
         degree = determine_degree(int(lc["Total_Count"]))
@@ -72,19 +78,54 @@ def main():
             score = (w_p * df["Count_patents"] + w_r * df["Count_research"] + w_f * df["Financial"]).values
             y_train, actual = score[:-1], score[-1]
             row = {"label": label, "scheme": scheme}
+            pred_row = {"label": label, "scheme": scheme, "records": int(lc["Total_Count"]),
+                        "degree": degree, "actual": actual, "last": y_train[-1]}
             for m in MODELS:
-                row[m] = abs(predict(m, degree, X_train, y_train, X_test) - actual)
+                pred_row[m] = predict(m, degree, X_train, y_train, X_test)
+                row[m] = abs(pred_row[m] - actual)
             for d in DEGREES:
                 row[f"Degree {d}"] = abs(ridge_poly(d, X_train, y_train, X_test) - actual)
             rows.append(row)
+            pred_rows.append(pred_row)
     errors = pd.DataFrame(rows)
+    preds = pd.DataFrame(pred_rows)
+
+    # Appendix per-subfield table: 2024 absolute error of every model, per scheme
+    per_subfield = errors[["label", "scheme"] + MODELS].merge(
+        preds[["label", "scheme", "records", "degree"]], on=["label", "scheme"])
+    per_subfield["best"] = per_subfield[MODELS].idxmin(axis=1)
+    per_subfield = per_subfield[["scheme", "label", "records", "degree"] + MODELS + ["best"]]
+    per_subfield.sort_values(["scheme", "records"], ascending=[True, False]).to_csv(
+        os.path.join(out_dir, "per_subfield.csv"), index=False, float_format="%.4f")
+
+    # RMSE per degree group (subfield size tier), per scheme
+    group_rows = []
+    for (scheme, degree), g in errors.merge(preds[["label", "scheme", "degree"]], on=["label", "scheme"]).groupby(["scheme", "degree"], sort=False):
+        best = wins(g)
+        for m in MODELS:
+            group_rows.append({"scheme": scheme, "degree": degree, "n_subfields": len(g), "model": m,
+                               "rmse": rmse(g[m]), "best_in_n_subfields": int(best[m])})
+    pd.DataFrame(group_rows).to_csv(os.path.join(out_dir, "rmse_by_degree_group.csv"), index=False, float_format="%.4f")
+
+    # Ranking accuracy: does the predicted 2024 ordering of subfields match the observed one?
+    rank_rows = []
+    for scheme, g in preds.groupby("scheme", sort=False):
+        for m in MODELS:
+            rank_rows.append({"scheme": scheme, "model": m,
+                              "spearman": g[m].corr(g["actual"], method="spearman"),
+                              "kendall": g[m].corr(g["actual"], method="kendall"),
+                              # ordering of the 2023->2024 change; undefined for Naive, which predicts no change
+                              "spearman_change": (g[m] - g["last"]).corr(g["actual"] - g["last"], method="spearman"),
+                              **{f"top{k}_overlap": len(set(g.nlargest(k, m)["label"]) & set(g.nlargest(k, "actual")["label"]))
+                                 for k in TOP_K}})
+    pd.DataFrame(rank_rows).to_csv(os.path.join(out_dir, "ranking_accuracy.csv"), index=False, float_format="%.4f")
 
     # Table tab:model_comparison and the per-subfield win counts quoted in the text
     model_rows = []
     for scheme, g in errors.groupby("scheme", sort=False):
-        best = g[MODELS].idxmin(axis=1)
+        best = wins(g)
         for m in MODELS:
-            model_rows.append({"scheme": scheme, "model": m, "rmse": rmse(g[m]), "best_in_n_subfields": int((best == m).sum())})
+            model_rows.append({"scheme": scheme, "model": m, "rmse": rmse(g[m]), "best_in_n_subfields": int(best[m])})
     pd.DataFrame(model_rows).to_csv(os.path.join(out_dir, "model_comparison.csv"), index=False, float_format="%.4f")
 
     # Fixed-degree RMSEs quoted in the text (base weights)

@@ -1,0 +1,16 @@
+scheme,model,spearman,kendall,spearman_change,top5_overlap,top10_overlap
+Base,Polynomial ridge,0.9867,0.9232,0.6601,4,9
+Base,Linear ridge,0.9849,0.9175,0.5527,4,9
+Base,Random Forest,0.9840,0.9147,-0.5332,4,9
+Base,XGBoost,0.9790,0.8890,0.2684,4,9
+Base,Naive,0.9790,0.8890,,4,9
+Equal weights,Polynomial ridge,0.9829,0.9090,0.6884,5,9
+Equal weights,Linear ridge,0.9818,0.9061,0.5199,4,9
+Equal weights,Random Forest,0.9834,0.9175,-0.5940,4,9
+Equal weights,XGBoost,0.9799,0.8947,0.2540,4,9
+Equal weights,Naive,0.9803,0.8976,,4,9
+No funding,Polynomial ridge,0.9842,0.9147,0.6505,5,9
+No funding,Linear ridge,0.9818,0.9061,0.5199,4,9
+No funding,Random Forest,0.9834,0.9175,-0.5940,4,9
+No funding,XGBoost,0.9801,0.9033,-0.4139,4,9
+No funding,Naive,0.9803,0.8976,,4,9
