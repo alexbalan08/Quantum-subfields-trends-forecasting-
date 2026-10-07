@@ -14,29 +14,30 @@ Publications and patents were retrieved with the single keyword *quantum* rather
 ### Research Publications
 - Collected between **2017–2025**, 25,000 publications from *Scopus library*.
 - Each publication labeled into one of the **38 verified quantum subfields** with **Claude 3 Haiku API**
-- Invalid or uncertain classifications were excluded, so all data is ready for modelling
+- Invalid or uncertain classifications were excluded, so all data is ready for modelling (final dataset: **24,842 publications**)
 
 ### Patents
-- **50,000 quantum-related patents** collected from *The Lens* (aligned with 2017–2025 June).
+- **47,871 quantum-related patents** collected from *The Lens* (aligned with 2017–2025 June).
 - Data includes: title, abstract, inventor names, affiliations, and jurisdiction.
 - Labeled into 38 subfields using **Claude 3 Haiku API** (title + abstract) - same labels as for the research dataset.
-- Invalid or uncertain labels removed → final dataset contains **46,106 unique patents**.
+- Invalid or uncertain labels removed → final dataset contains **46,106 patent records**. Filings of the same invention in different jurisdictions are kept as separate records, so the counts measure filing activity (25,030 distinct titles).
 
 ### Financial Data - collected by Irene.
 - **EU:** projects funded under Horizon 2020 and Horizon Europe (2017–2024) from the official *CORDIS* database, kept when the project title contains *quantum* (title, funding amount, start/end dates, participating institutions).
 - **Outside the EU:** no central repository exists, so figures come from national programmes, government reports, and industry publications, converted to millions of euros and aggregated into annual estimates. UK data after Brexit are incomplete but kept.
-- Funding is summed across countries into **one value per year**, used for every subfield. It therefore moves all subfields up or down together and does not explain differences between them. Because sources differ in scope and quality, funding gets only a 10% weight in the base setting.
+- Funding is summed across countries into **one value per year**, used for every subfield. It therefore moves all subfields up or down together and does not explain differences between them (although, since subfields use different polynomial degrees, it can change their forecast order). Because sources differ in scope and quality, funding gets only a 10% weight in the base setting.
 
 ---
 
 ## Methods I used
 
 1. **Data Collection** → research papers, patents, and funding (2017–2025).
-2. **Preprocessing & Cleaning** → remove duplicates, invalid labels, standardize affiliations/countries and author names
+2. **Preprocessing & Cleaning** → remove invalid labels, standardize affiliations/countries and author names
 3. **Labeling** → auto-classification into 38 subfields, manual validation on samples.
-4. **Modeling** → polynomial regression (adaptive degree 1–5) + ridge regularization (α=0.1) to avoid overfitting. We picked this based on comparison with other models as well.
+4. **Modeling** → polynomial regression (adaptive degree 1–3, set by each subfield's training-year record count: degree 1 below 1,000 records, degree 2 from 1,000 to 1,999, degree 3 from 2,000 upward) + ridge regularization (α=0.1) to avoid overfitting. We picked this based on comparison with other models as well (linear ridge, Random Forest, XGBoost, and a naive last-value forecast).
    - All three indicators are min-max scaled to [0, 1]. Publications and patents each use one scaler shared across all subfields, so differences between subfields are kept; funding is scaled on its annual series.
    - Every scaler is fitted on the training years only (**2017–2023**) and applied unchanged to later years, so there is no information leakage (values from 2024 onward can exceed 1).
+   - Models are trained on **2017–2023** and validated on **2024**. 2025 is only observed until June, so it is not used for training or validation.
 5. **Weighted Predictions** → combine sources with customizable weight settings:
    - Base (55% patents / 35% research / 10% funding).
    - Equal weights (33/33/33).
@@ -55,7 +56,7 @@ Publications and patents were retrieved with the single keyword *quantum* rather
 
 The **interactive app** allows users to:
 
-- Forecast future growth (2026–2028) for any of the 38 subfields.
+- Forecast future activity (2025–2028) for any of the 38 subfields.
 - Compare multiple subfields side by side - you can compare all of them to identify the most growing ones.
 - Explore country level contributions (bar charts + maps). Which countries contributed the most in terms of reseearch/patents/investments within this topics?
 - Export graphs and data as CSV or PNG.
